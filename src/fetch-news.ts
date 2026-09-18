@@ -173,11 +173,18 @@ async function main() {
   console.log(`\n[Panchbibi News Feed] Sources Summary: ${activeSources.length} successful, ${failedSources.length} failed`);
   console.log(`[Panchbibi News Feed] Total raw items collected: ${allRawItems.length}`);
 
-  // If ALL sources failed and we have an existing feed, preserve previous feed!
+  // If ALL sources failed and we have an existing valid feed, preserve previous feed!
+  // Only fail clearly if all sources fail AND there is no existing valid feed.
   if (activeSources.length === 0 && failedSources.length > 0) {
-    if (existingFeed && existingFeed.items.length > 0) {
-      console.error('[CRITICAL] All sources failed! Preserving previous feed unchanged.');
-      process.exit(1);
+    if (existingFeed && existingFeed.items && existingFeed.items.length > 0) {
+      console.warn('[WARNING] All sources failed during fetch! Preserving previous feed unchanged.');
+      if (!fs.existsSync(JS_FILE)) {
+        fs.writeFileSync(JS_FILE, serializeToJs(existingFeed), 'utf8');
+      }
+      if (!fs.existsSync(STATUS_FILE)) {
+        fs.writeFileSync(STATUS_FILE, generateStatusHtml(existingFeed, activeSources, failedSources), 'utf8');
+      }
+      return;
     } else {
       console.error('[CRITICAL] All sources failed and no existing feed available!');
       process.exit(1);
@@ -222,7 +229,12 @@ async function main() {
     items: mergedItems
   };
 
-  if (!contentChanged && fs.existsSync(JSON_FILE)) {
+  const nojekyllFile = path.join(PUBLIC_DIR, '.nojekyll');
+  if (!fs.existsSync(nojekyllFile)) {
+    fs.writeFileSync(nojekyllFile, '', 'utf8');
+  }
+
+  if (!contentChanged && fs.existsSync(JSON_FILE) && fs.existsSync(JS_FILE) && fs.existsSync(STATUS_FILE)) {
     console.log('[Panchbibi News Feed] Content unchanged. No new stories detected.');
     console.log('[Panchbibi News Feed] Preserving existing files to avoid meaningless git commits.');
     return;
@@ -243,6 +255,7 @@ async function main() {
   console.log(` - ${JSON_FILE}`);
   console.log(` - ${JS_FILE}`);
   console.log(` - ${STATUS_FILE}`);
+  console.log(` - ${nojekyllFile}`);
 }
 
 main().catch(err => {

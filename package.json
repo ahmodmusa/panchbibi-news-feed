@@ -5,7 +5,7 @@
   "main": "dist/fetch-news.js",
   "scripts": {
     "fetch": "tsx src/fetch-news.ts",
-    "test": "tsx --test tests/**/*.test.ts",
+    "test": "tsx --test tests/*.test.ts",
     "check": "tsc --noEmit",
     "build": "tsc"
   },
