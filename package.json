@@ -1,0 +1,27 @@
+{
+  "name": "panchbibi-news-feed",
+  "version": "1.0.0",
+  "description": "Automated news discovery and aggregation for Panchbibi, Joypurhat, Bangladesh",
+  "main": "dist/fetch-news.js",
+  "scripts": {
+    "fetch": "tsx src/fetch-news.ts",
+    "test": "tsx --test tests/**/*.test.ts",
+    "check": "tsc --noEmit",
+    "build": "tsc"
+  },
+  "keywords": [
+    "panchbibi",
+    "news",
+    "feed",
+    "bangladesh",
+    "aggregator"
+  ],
+  "author": "Ahmod Musa",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  },
+  "type": "module"
+}
