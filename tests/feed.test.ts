@@ -128,3 +128,112 @@ test('safe serialization prevents script tag breakouts', () => {
   assert.ok(!safeJson.includes('</script>'));
   assert.ok(safeJson.includes('<\\/script>'));
 });
+
+test('parseBanglaDate handles complex newspaper formats with day of week and AM/PM', () => {
+  const d1 = parseBanglaDate('প্রকাশ : ০৯ জুলাই ২০২৬, ০৯:৫৭ এএম');
+  assert.ok(d1, 'Should parse Kalbela style date');
+  assert.match(d1!, /^2026-07-09T09:57:00\+06:00/);
+
+  const d2 = parseBanglaDate('বুধবার, ১৬ সেপ্টেম্বর ২০২৬ | ১০:২৫ পিএম');
+  assert.ok(d2, 'Should parse date with day of week and pipe');
+  assert.match(d2!, /^2026-09-16T22:25:00\+06:00/);
+
+  const d3 = parseBanglaDate('2026-09-18T10:00:00Z');
+  assert.ok(d3, 'Should pass through valid ISO timestamp');
+  assert.equal(d3, '2026-09-18T10:00:00.000Z');
+});
+
+test('Daily Karatoa card extraction correctly bounds headlines to their matching article URLs', async () => {
+  const cheerio = await import('cheerio');
+  // Simulated consecutive Daily Karatoa cards with dual <a class="link"> per card
+  const mockHtml = `
+    <div class="cat_lead snews">
+      <div class="common-card-content">
+        <div class="image-lead">
+          <img class="news_img" src="https://www.dailykaratoa.com//public/images/card1.jpg" alt="Headline One" />
+          <a class="link" href="https://www.dailykaratoa.com/article/1001"></a>
+        </div>
+        <div class="news-content-box">
+          <h5 class="title">পাঁচবিবিতে প্রথম ঘটনার শিরোনাম</h5>
+          <a class="link" href="https://www.dailykaratoa.com/article/1001"></a>
+        </div>
+      </div>
+    </div>
+    <div class="cat_sub_lead snews">
+      <div class="common-card-content">
+        <div class="image-lead">
+          <img class="news_img" src="https://www.dailykaratoa.com//public/images/card2.jpg" alt="Headline Two" />
+          <a class="link" href="https://www.dailykaratoa.com/article/1002"></a>
+        </div>
+        <div class="news-content-box">
+          <h5 class="title">পাঁচবিবিতে দ্বিতীয় ঘটনার শিরোনাম</h5>
+          <a class="link" href="https://www.dailykaratoa.com/article/1002"></a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const $ = cheerio.load(mockHtml);
+  const extracted: Array<{ title: string; url: string; img?: string }> = [];
+
+  $('.cat_lead, .cat_sub_lead').each((_, el) => {
+    const card = $(el);
+    const linkEl = card.find('a.link, a[href*="/article/"]').first();
+    const url = linkEl.attr('href') || '';
+    const title = card.find('h5.title, h5').first().text().trim();
+    const img = card.find('img').first().attr('src');
+    extracted.push({ title, url, img });
+  });
+
+  assert.equal(extracted.length, 2);
+  // Strictly verify Card 1 maps to 1001 and Card 2 maps to 1002 (no 1-offset shift!)
+  assert.equal(extracted[0].url, 'https://www.dailykaratoa.com/article/1001');
+  assert.equal(extracted[0].title, 'পাঁচবিবিতে প্রথম ঘটনার শিরোনাম');
+  assert.equal(extracted[1].url, 'https://www.dailykaratoa.com/article/1002');
+  assert.equal(extracted[1].title, 'পাঁচবিবিতে দ্বিতীয় ঘটনার শিরোনাম');
+});
+
+test('Kalbela card parser extracts article ID, normalizes URLs, and captures thumbnails', async () => {
+  const cheerio = await import('cheerio');
+  const mockKalbela = `
+    <div id="category_content">
+      <div class="cat_lead">
+        <a href="/country-news/307205">
+          <img src="/assets/news_photos/2026/07/09/image_307205.webp" />
+          <h5 class="title">পাঁচবিবিতে নতুন উন্নয়ন প্রকল্প উদ্বোধন</h5>
+        </a>
+      </div>
+      <div class="sub-news">
+        <a href="https://www.kalbela.com/country-news/305443">
+          <img src="/assets/news_photos/2026/07/03/image_305443.webp" />
+          <h5>বাগজানায় বৃক্ষরোপণ কর্মসূচি পালিত</h5>
+        </a>
+      </div>
+    </div>
+  `;
+
+  const $ = cheerio.load(mockKalbela);
+  const items: Array<{ title: string; url: string; img: string }> = [];
+
+  $('#category_content').find('a[href*="/country-news/"]').each((_, el) => {
+    const link = $(el);
+    const href = link.attr('href') || '';
+    if (!/\/country-news\/\d+/.test(href)) return;
+
+    const fullUrl = href.startsWith('/') ? 'https://www.kalbela.com' + href : href;
+    const title = link.find('h5, .title').text().trim();
+    let img = link.find('img').attr('src') || '';
+    if (img.startsWith('/')) img = 'https://www.kalbela.com' + img;
+
+    items.push({ title, url: fullUrl, img });
+  });
+
+  assert.equal(items.length, 2);
+  assert.equal(items[0].url, 'https://www.kalbela.com/country-news/307205');
+  assert.equal(items[0].title, 'পাঁচবিবিতে নতুন উন্নয়ন প্রকল্প উদ্বোধন');
+  assert.equal(items[0].img, 'https://www.kalbela.com/assets/news_photos/2026/07/09/image_307205.webp');
+
+  assert.equal(items[1].url, 'https://www.kalbela.com/country-news/305443');
+  assert.equal(items[1].title, 'বাগজানায় বৃক্ষরোপণ কর্মসূচি পালিত');
+});
+

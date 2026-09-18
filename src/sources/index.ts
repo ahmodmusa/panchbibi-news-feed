@@ -1,10 +1,11 @@
-﻿import { SourceAdapter } from '../types.js';
+import { SourceAdapter } from '../types.js';
 import { dhakapostAdapter } from './dhakapost.js';
 import { prothomaloAdapter } from './prothomalo.js';
 import { silkcitynewsAdapter } from './silkcitynews.js';
 import { dailykaratoaAdapter } from './dailykaratoa.js';
 import { ajkerpatrikaAdapter } from './ajkerpatrika.js';
 import { dailybangladeshAdapter } from './dailybangladesh.js';
+import { kalbelaAdapter } from './kalbela.js';
 
 export const ALL_ADAPTERS: SourceAdapter[] = [
   dhakapostAdapter,
@@ -12,5 +13,6 @@ export const ALL_ADAPTERS: SourceAdapter[] = [
   silkcitynewsAdapter,
   dailykaratoaAdapter,
   ajkerpatrikaAdapter,
-  dailybangladeshAdapter
+  dailybangladeshAdapter,
+  kalbelaAdapter
 ];

@@ -125,33 +125,58 @@ export function convertBanglaDigits(str: string): string {
   return str.replace(/[০-৯]/g, d => BANGLA_NUM_MAP[d] ?? d);
 }
 
+const BANGLA_DAYS_REGEX = /(?:রবিবার|সোমবার|মঙ্গলবার|বুধবার|বৃহস্পতিবার|শুক্রবার|শনিবার|রবি|সোম|মঙ্গল|বুধ|বৃহস্পতি|শুক্র|শনি)\s*,?\s*/gi;
+
 /**
  * Parse Bengali formatted date strings into ISO 8601 string.
- * Example: "১৫ সেপ্টেম্বর ২০২৬, ০৫:৫০" or "১৫ সেপ্টেম্বর, ২০২৬ ০৭:১৬ পিএম"
+ * Example: "১৫ সেপ্টেম্বর ২০২৬, ০৫:৫০" or "১৬ সেপ্টেম্বর, ২০২৬ ১০:২৫ পিএম" or "বুধবার, ১৬ সেপ্টেম্বর ২০২৬"
  */
 export function parseBanglaDate(banglaStr: string): string | null {
   if (!banglaStr || typeof banglaStr !== 'string') return null;
 
   try {
-    const rawClean = banglaStr.replace(/প্রকাশ\s*:\s*/i, '').replace(/আপডেট\s*:\s*/i, '').trim();
+    const trimmed = banglaStr.trim();
+
+    // If it's already an ISO or standard machine date format
+    if (/^\d{4}-\d{2}-\d{2}/.test(trimmed)) {
+      const d = new Date(trimmed);
+      if (!isNaN(d.getTime())) return d.toISOString();
+    }
+
+    // Strip common labels and day of week
+    let rawClean = trimmed
+      .replace(/^(?:প্রকাশিত|প্রকাশ|আপডেট|আপডেটেড|published|updated)\s*:\s*/i, '')
+      .replace(BANGLA_DAYS_REGEX, '')
+      .replace(/\|\s*/g, ' ')
+      .trim();
+
     const withLatinDigits = convertBanglaDigits(rawClean);
 
-    // Look for day, month, year, [time]
-    // e.g. "15 সেপ্টেম্বর 2026, 05:50" or "15 সেপ্টেম্বর, 2026 07:16 পিএম"
-    const match = withLatinDigits.match(/(\d{1,2})\s+([^\s,]+)[,\s]+(\d{4})(?:[,\s]+(\d{1,2}):(\d{2}))?(?:\s*(am|pm|এএম|পিএম))?/i);
+    // 1. Check if standard date string after digit conversion
+    const directDate = new Date(withLatinDigits);
+    if (!isNaN(directDate.getTime()) && directDate.getFullYear() > 2000 && directDate.getFullYear() < 2100) {
+      // If it has month names, let's verify
+      if (/^[a-zA-Z]{3,9}\s+\d{1,2},\s+\d{4}/.test(withLatinDigits)) {
+        return directDate.toISOString();
+      }
+    }
+
+    // 2. Regex for: Day Month Year [Time] [AM/PM]
+    // e.g. "16 সেপ্টেম্বর, 2026 10:25 পিএম" or "15 সেপ্টেম্বর 2026, 05:50" or "16 সেপ্টেম্বর 2026"
+    const match = withLatinDigits.match(/(\d{1,2})\s+([^\s,]+)[,\s]+(\d{4})(?:[,\s]+(\d{1,2}):(\d{2})(?::(\d{2}))?)?(?:\s*(am|pm|এএম|পিএম))?/i);
     if (!match) {
-      // Check if standard ISO or parseable directly
-      const d = new Date(banglaStr);
+      const d = new Date(withLatinDigits);
       if (!isNaN(d.getTime())) return d.toISOString();
       return null;
     }
 
     const day = parseInt(match[1], 10);
-    const monthName = match[2].trim();
+    const rawMonth = match[2].trim().toLowerCase();
     const year = parseInt(match[3], 10);
-    let hour = match[4] ? parseInt(match[4], 10) : 12;
+    let hour = match[4] ? parseInt(match[4], 10) : 0;
     const minute = match[5] ? parseInt(match[5], 10) : 0;
-    const period = match[6] ? match[6].toLowerCase() : null;
+    const second = match[6] ? parseInt(match[6], 10) : 0;
+    const period = match[7] ? match[7].toLowerCase() : null;
 
     if (period === 'pm' || period === 'পিএম') {
       if (hour < 12) hour += 12;
@@ -159,14 +184,14 @@ export function parseBanglaDate(banglaStr: string): string | null {
       if (hour === 12) hour = 0;
     }
 
-    const monthIndex = BANGLA_MONTH_MAP[monthName];
+    const monthIndex = BANGLA_MONTH_MAP[rawMonth];
     if (monthIndex === undefined) {
       return null;
     }
 
     // Bangladesh is UTC+6
     const pad = (n: number) => String(n).padStart(2, '0');
-    return `${year}-${pad(monthIndex + 1)}-${pad(day)}T${pad(hour)}:${pad(minute)}:00+06:00`;
+    return `${year}-${pad(monthIndex + 1)}-${pad(day)}T${pad(hour)}:${pad(minute)}:${pad(second)}+06:00`;
   } catch {
     return null;
   }

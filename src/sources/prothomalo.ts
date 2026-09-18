@@ -1,4 +1,4 @@
-﻿import { RawNewsItem, SourceAdapter } from '../types.js';
+import { RawNewsItem, SourceAdapter } from '../types.js';
 import { fetchJson } from '../http.js';
 
 interface ProthomAloResponse {
@@ -8,6 +8,7 @@ interface ProthomAloResponse {
       slug: string;
       url?: string;
       'published-at'?: number | string;
+      'hero-image-s3-key'?: string;
       sections?: Array<{ name: string }>;
     }>;
   };
@@ -39,11 +40,16 @@ export const prothomaloAdapter: SourceAdapter = {
         }
       }
 
+      const imageUrl = story['hero-image-s3-key']
+        ? `https://images.prothomalo.com/${story['hero-image-s3-key']}`
+        : null;
+
       results.push({
         title: story.headline,
         url,
         source: 'Prothom Alo',
         publishedAt,
+        imageUrl,
         sourceType: 'api',
         rawLocation: 'panchbibi-search'
       });

@@ -1,9 +1,10 @@
-﻿export interface NewsItem {
+export interface NewsItem {
   id: string;
   title: string;
   url: string;
   source: string;
   publishedAt?: string | null;
+  imageUrl?: string | null;
   discoveredAt: string;
   locationMatch: 'panchbibi' | 'joypurhat' | 'keyword';
   sourceType: 'rss' | 'api' | 'sitemap' | 'category' | 'search';
@@ -21,6 +22,7 @@ export interface RawNewsItem {
   url: string;
   source: string;
   publishedAt?: string | null;
+  imageUrl?: string | null;
   sourceType: 'rss' | 'api' | 'sitemap' | 'category' | 'search';
   rawLocation?: string;
 }

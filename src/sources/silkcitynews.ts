@@ -1,4 +1,4 @@
-﻿import { RawNewsItem, SourceAdapter } from '../types.js';
+import { RawNewsItem, SourceAdapter } from '../types.js';
 import { fetchJson } from '../http.js';
 
 interface WordPressPost {
@@ -9,6 +9,16 @@ interface WordPressPost {
   title: {
     rendered: string;
   };
+  _embedded?: {
+    'wp:featuredmedia'?: Array<{
+      source_url?: string;
+    }>;
+  };
+  yoast_head_json?: {
+    og_image?: Array<{
+      url?: string;
+    }>;
+  };
 }
 
 export const silkcitynewsAdapter: SourceAdapter = {
@@ -17,7 +27,7 @@ export const silkcitynewsAdapter: SourceAdapter = {
 
   async fetch(): Promise<RawNewsItem[]> {
     const apiUrl =
-      'https://silkcitynews.com/wp-json/wp/v2/posts?search=%E0%A6%AA%E0%A6%BE%E0%A6%81%E0%A6%9A%E0%A6%AC%E0%A6%BF%E0%A6%AC%E0%A6%BF&per_page=25';
+      'https://silkcitynews.com/wp-json/wp/v2/posts?search=%E0%A6%AA%E0%A6%BE%E0%A6%81%E0%A6%9A%E0%A6%AC%E0%A6%BF%E0%A6%AC%E0%A6%BF&per_page=25&_embed=1';
 
     const posts = await fetchJson<WordPressPost[]>(apiUrl);
     const results: RawNewsItem[] = [];
@@ -37,11 +47,17 @@ export const silkcitynewsAdapter: SourceAdapter = {
         }
       }
 
+      const imageUrl =
+        post._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
+        post.yoast_head_json?.og_image?.[0]?.url ||
+        null;
+
       results.push({
         title: post.title.rendered,
         url: post.link,
         source: 'Silk City News',
         publishedAt,
+        imageUrl,
         sourceType: 'api',
         rawLocation: 'panchbibi-search'
       });

@@ -4,6 +4,7 @@ import { ALL_ADAPTERS } from './sources/index.js';
 import { RawNewsItem, NewsItem, NewsFeed } from './types.js';
 import { filterAndValidate } from './filter.js';
 import { deduplicateAndMerge } from './dedupe.js';
+import { enrichNewsItems } from './enrich.js';
 
 const PUBLIC_DIR = path.resolve(process.cwd(), 'public');
 const JSON_FILE = path.join(PUBLIC_DIR, 'news.json');
@@ -12,10 +13,10 @@ const STATUS_FILE = path.join(PUBLIC_DIR, 'index.html');
 
 /**
  * Compute a content fingerprint of the items list
- * to detect if anything actually changed.
+ * to detect if anything actually changed (including metadata).
  */
 function computeItemsFingerprint(items: NewsItem[]): string {
-  return items.map(i => `${i.id}|${i.url}|${i.title}`).join('||');
+  return items.map(i => `${i.id}|${i.url}|${i.title}|${i.publishedAt || ''}|${i.imageUrl || ''}`).join('||');
 }
 
 /**
@@ -24,7 +25,6 @@ function computeItemsFingerprint(items: NewsItem[]): string {
  */
 function serializeToJs(feed: NewsFeed): string {
   const jsonStr = JSON.stringify(feed, null, 2);
-  // Prevent </script> tag breakout
   const safeJson = jsonStr.replace(/<\/script/gi, '<\\/script');
   return `/**
  * Panchbibi News Feed - Client-side fallback feed
@@ -41,15 +41,18 @@ function serializeToJs(feed: NewsFeed): string {
  * Generate a static diagnostic HTML status page.
  */
 function generateStatusHtml(feed: NewsFeed, activeSources: string[], failedSources: string[]): string {
-  const itemsList = feed.items.slice(0, 15).map(i => `
-    <li style="margin-bottom: 0.75rem;">
-      <a href="${i.url}" target="_blank" rel="noopener noreferrer" style="color: #0284c7; text-decoration: none; font-weight: 500;">
-        ${escapeHtml(i.title)}
-      </a>
-      <div style="font-size: 0.85rem; color: #64748b;">
-        <span>${escapeHtml(i.source)}</span>
-        ${i.publishedAt ? ` &middot; <span>${escapeHtml(i.publishedAt.slice(0, 10))}</span>` : ''}
-        &middot; <span style="text-transform: uppercase; font-size: 0.75rem;">${escapeHtml(i.locationMatch)}</span>
+  const itemsList = feed.items.slice(0, 20).map(i => `
+    <li style="margin-bottom: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
+      ${i.imageUrl ? `<img src="${escapeHtml(i.imageUrl)}" alt="" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0; background: #e2e8f0;" loading="lazy">` : ''}
+      <div>
+        <a href="${i.url}" target="_blank" rel="noopener noreferrer" style="color: #0284c7; text-decoration: none; font-weight: 500; display: block;">
+          ${escapeHtml(i.title)}
+        </a>
+        <div style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem;">
+          <span>${escapeHtml(i.source)}</span>
+          ${i.publishedAt ? ` &middot; <span>${escapeHtml(i.publishedAt.slice(0, 10))}</span>` : ' &middot; <span style="color: #eab308;">(No published date)</span>'}
+          &middot; <span style="text-transform: uppercase; font-size: 0.75rem;">${escapeHtml(i.locationMatch)}</span>
+        </div>
       </div>
     </li>
   `).join('');
@@ -140,13 +143,26 @@ async function main() {
     }
   }
 
-  const existingItems: NewsItem[] = existingFeed?.items || [];
-  console.log(`[Panchbibi News Feed] Existing items in feed: ${existingItems.length}`);
+  const rawExistingItems: NewsItem[] = existingFeed?.items || [];
+  console.log(`[Panchbibi News Feed] Existing items in feed: ${rawExistingItems.length}`);
+
+  // Purge any stale Daily Karatoa items from historical cache to eliminate desynchronized headlines
+  const purgedExistingItems = rawExistingItems.filter(item => {
+    if (item.source === 'Daily Karatoa') {
+      return false; // Re-ingest fresh verified items only
+    }
+    return true;
+  });
+
+  if (rawExistingItems.length !== purgedExistingItems.length) {
+    console.log(`[Panchbibi News Feed] Purged ${rawExistingItems.length - purgedExistingItems.length} old Karatoa records from historical cache for re-verification.`);
+  }
 
   // Fetch all sources concurrently with per-source error isolation
   const activeSources: string[] = [];
   const failedSources: string[] = [];
   const allRawItems: RawNewsItem[] = [];
+  const sourceRawCounts: Record<string, number> = {};
 
   const results = await Promise.allSettled(
     ALL_ADAPTERS.map(async adapter => {
@@ -164,8 +180,10 @@ async function main() {
     if (res.status === 'fulfilled') {
       activeSources.push(adapter.name);
       allRawItems.push(...res.value.items);
+      sourceRawCounts[adapter.name] = res.value.items.length;
     } else {
       failedSources.push(adapter.name);
+      sourceRawCounts[adapter.name] = 0;
       console.error(`[Source Failed] ${adapter.name}:`, res.reason?.message || res.reason);
     }
   }
@@ -173,8 +191,7 @@ async function main() {
   console.log(`\n[Panchbibi News Feed] Sources Summary: ${activeSources.length} successful, ${failedSources.length} failed`);
   console.log(`[Panchbibi News Feed] Total raw items collected: ${allRawItems.length}`);
 
-  // If ALL sources failed and we have an existing valid feed, preserve previous feed!
-  // Only fail clearly if all sources fail AND there is no existing valid feed.
+  // Fallback protection if all sources failed
   if (activeSources.length === 0 && failedSources.length > 0) {
     if (existingFeed && existingFeed.items && existingFeed.items.length > 0) {
       console.warn('[WARNING] All sources failed during fetch! Preserving previous feed unchanged.');
@@ -194,11 +211,13 @@ async function main() {
   // Filter and validate raw items for Panchbibi relevance
   const validatedNewItems: NewsItem[] = [];
   let rejectedCount = 0;
+  const sourceAcceptedCounts: Record<string, number> = {};
 
   for (const raw of allRawItems) {
     const filterRes = filterAndValidate(raw, discoveredAt);
     if (filterRes.accepted && filterRes.item) {
       validatedNewItems.push(filterRes.item);
+      sourceAcceptedCounts[raw.source] = (sourceAcceptedCounts[raw.source] || 0) + 1;
     } else {
       rejectedCount++;
     }
@@ -206,20 +225,66 @@ async function main() {
 
   console.log(`[Panchbibi News Feed] Validated new Panchbibi items: ${validatedNewItems.length} (Rejected ${rejectedCount} non-relevant/invalid)`);
 
+  // Enrich newly validated items missing dates or images
+  console.log(`[Panchbibi News Feed] Enriching newly validated items with article metadata...`);
+  const enrichedNewItems = await enrichNewsItems(validatedNewItems, 4);
+
+  // Also enrich any historical items currently missing dates or images
+  console.log(`[Panchbibi News Feed] Enriching historical items missing metadata...`);
+  const enrichedHistoricalItems = await enrichNewsItems(purgedExistingItems, 4);
+
   // Deduplicate and merge with rolling history (up to 100 items, 180 days)
-  const mergedItems = deduplicateAndMerge(existingItems, validatedNewItems, 100, 180);
+  const mergedItems = deduplicateAndMerge(enrichedHistoricalItems, enrichedNewItems, 100, 180);
   console.log(`[Panchbibi News Feed] Merged & deduplicated total items: ${mergedItems.length}`);
+
+  // Compute Source Health Report metrics
+  console.log('\n' + '='.repeat(90));
+  console.log('                                SOURCE HEALTH REPORT');
+  console.log('='.repeat(90));
+  console.log(
+    'Source Name'.padEnd(20) +
+    'Status'.padEnd(10) +
+    'Raw Fetched'.padEnd(14) +
+    'Accepted'.padEnd(12) +
+    'In Feed'.padEnd(10) +
+    'Dates %'.padEnd(12) +
+    'Images %'.padEnd(12)
+  );
+  console.log('-'.repeat(90));
+
+  for (const adapter of ALL_ADAPTERS) {
+    const name = adapter.name;
+    const isFailed = failedSources.includes(name);
+    const status = isFailed ? 'FAILED' : 'OK';
+    const rawFetched = sourceRawCounts[name] || 0;
+    const accepted = sourceAcceptedCounts[name] || 0;
+    const inFeedItems = mergedItems.filter(i => i.source === name);
+    const inFeedCount = inFeedItems.length;
+
+    const datesCount = inFeedItems.filter(i => !!i.publishedAt).length;
+    const imagesCount = inFeedItems.filter(i => !!i.imageUrl).length;
+
+    const datesPct = inFeedCount > 0 ? `${((datesCount / inFeedCount) * 100).toFixed(0)}% (${datesCount}/${inFeedCount})` : 'N/A';
+    const imagesPct = inFeedCount > 0 ? `${((imagesCount / inFeedCount) * 100).toFixed(0)}% (${imagesCount}/${inFeedCount})` : 'N/A';
+
+    console.log(
+      name.padEnd(20) +
+      status.padEnd(10) +
+      String(rawFetched).padEnd(14) +
+      String(accepted).padEnd(12) +
+      String(inFeedCount).padEnd(10) +
+      datesPct.padEnd(12) +
+      imagesPct.padEnd(12)
+    );
+  }
+  console.log('='.repeat(90) + '\n');
 
   // Check if content changed
   const oldFingerprint = existingFeed ? computeItemsFingerprint(existingFeed.items) : '';
   const newFingerprint = computeItemsFingerprint(mergedItems);
   const contentChanged = oldFingerprint !== newFingerprint;
 
-  // Determine generatedAt timestamp:
-  // If content did not change, keep the previous generatedAt to prevent meaningless git commits!
   const generatedAt = contentChanged || !existingFeed ? discoveredAt : existingFeed.generatedAt;
-
-  // Compute unique active sources across all items in feed
   const sourceNamesInFeed = new Set(mergedItems.map(i => i.source));
 
   const feedOutput: NewsFeed = {
@@ -262,3 +327,4 @@ main().catch(err => {
   console.error('[Fatal Error]', err);
   process.exit(1);
 });
+

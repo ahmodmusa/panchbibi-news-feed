@@ -1,121 +1,242 @@
 /**
  * Panchbibi News Feed - Client-side fallback feed
- * Generated: 2026-09-18T11:44:26.751Z
- * Total items: 13
+ * Generated: 2026-09-18T12:15:35.753Z
+ * Total items: 27
  */
 (function() {
   window.PANCHBIBI_NEWS_FEED = {
-  "generatedAt": "2026-09-18T11:44:26.751Z",
-  "count": 13,
-  "sources": 4,
+  "generatedAt": "2026-09-18T12:15:35.753Z",
+  "count": 27,
+  "sources": 5,
   "items": [
     {
       "id": "dailykaratoa--article-183984",
       "title": "জয়পুরহাটের পাঁচবিবিতে জমি নিয়ে বিরোধ বাড়িতে হামলা ও লুটপাট",
       "url": "https://www.dailykaratoa.com/article/183984",
       "source": "Daily Karatoa",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "publishedAt": "2026-09-18T00:00:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/20_1789575291.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
     {
       "id": "dailykaratoa--article-183851",
-      "title": "জয়পুরহাটের পাঁচবিবি বিজনেস ম্যানেজমেন্ট ইনস্টিটিউট ভারপ্রাপ্তকে সরিয়ে চেয়ারে বসলেন প্রতিষ্ঠাতা অধ্যক্ষ",
+      "title": "জয়পুরহাটের পাঁচবিবির পাথরঘাটা নিমাই শাহ মাজার মাদকসেবীদের অভয়রাণ্য",
       "url": "https://www.dailykaratoa.com/article/183851",
       "source": "Daily Karatoa",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "publishedAt": "2026-09-18T00:00:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/23_1789489286.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
     {
       "id": "dailykaratoa--article-183838",
-      "title": "জয়পুরহাটের পাঁচবিবিতে মাদক ব্যবসায়ীদের বিরুদ্ধে মানববন্ধন",
+      "title": "জয়পুরহাটের পাঁচবিবি বিজনেস ম্যানেজমেন্ট ইনস্টিটিউট ভারপ্রাপ্তকে সরিয়ে চেয়ারে বসলেন প্রতিষ্ঠাতা অধ্যক্ষ",
       "url": "https://www.dailykaratoa.com/article/183838",
       "source": "Daily Karatoa",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:44:26.751Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "search"
-    },
-    {
-      "id": "dailykaratoa--article-183810",
-      "title": "জয়পুরহাটের পাঁচবিবিতে আখক্ষেত থেকে নিখোঁজ তমেজুলের মরদেহ উদ্ধার",
-      "url": "https://www.dailykaratoa.com/article/183810",
-      "source": "Daily Karatoa",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "publishedAt": "2026-09-18T00:00:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/17_1789485726.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
     {
       "id": "dailykaratoa--article-183440",
-      "title": "জয়পুরহাটের পাঁচবিবির ধরঞ্জীতে কিশোরীর ঝুলন্ত মরদেহ উদ্ধার",
+      "title": "জয়পুরহাটের পাঁচবিবিতে আখক্ষেত থেকে নিখোঁজ তমেজুলের মরদেহ উদ্ধার",
       "url": "https://www.dailykaratoa.com/article/183440",
       "source": "Daily Karatoa",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "publishedAt": "2026-09-18T00:00:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/1...morde ho_1787994443.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-183810",
+      "title": "জয়পুরহাটের পাঁচবিবিতে মাদক ব্যবসায়ীদের বিরুদ্ধে মানববন্ধন",
+      "url": "https://www.dailykaratoa.com/article/183810",
+      "source": "Daily Karatoa",
+      "publishedAt": "2026-09-18T00:00:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/13_manbo bondhon_1789478188.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dhakapost--country-483477",
+      "title": "জয়পুরহাটে দুই দিনে ক্লাসে অসুস্থ ২৯ শিক্ষার্থী, হাসপাতালে ভর্তি ২২",
+      "url": "https://www.dhakapost.com/country/483477",
+      "source": "Dhaka Post",
+      "publishedAt": "2026-09-16T22:43:52.000Z",
+      "imageUrl": "https://cdn.dhakapost.com/media/imgAll/BG/2026September/dhaka-post-2026-09-17t044346002-20260917044352.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
+    {
+      "id": "dhakapost--country-482842",
+      "title": "জয়পুরহাটে বিজিবির ফ্রি মেডিকেল ক্যাম্পে সেবা পেল ৫ শতাধিক মানুষ",
+      "url": "https://www.dhakapost.com/country/482842",
+      "source": "Dhaka Post",
+      "publishedAt": "2026-09-14T11:45:04.000Z",
+      "imageUrl": "https://cdn.dhakapost.com/media/imgAll/BG/2026September/joypurhat-20260914174504.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
     },
     {
       "id": "ajkerpatrika-ladesh-joypurhat-ajpsnghzmtqjx",
       "title": "পাঁচবিবিতে সড়কের গাছ কাটায় তিনজনের কারাদণ্ড",
       "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajpsnghzmtqjx",
       "source": "Ajker Patrika",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "publishedAt": "2026-09-13T15:40:42.581Z",
+      "imageUrl": "https://images.ajkerpatrika.com/original_images/pcbb-srkr-gch.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
     {
-      "id": "ajkerpatrika-ladesh-joypurhat-ajpz7ghzhsai5",
-      "title": "পাঁচবিবিতে পূর্বশত্রুতার জেরে কৃষককে কুপিয়ে জখম",
-      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajpz7ghzhsai5",
-      "source": "Ajker Patrika",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:44:26.751Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "category"
-    },
-    {
-      "id": "ajkerpatrika-ladesh-joypurhat-ajpeegg48ckeg",
-      "title": "পাঁচবিবি সীমান্তে ফের কাঁটাতারের বেড়া নির্মাণের চেষ্টা বিএসএফের, উত্তেজনা",
-      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajpeegg48ckeg",
-      "source": "Ajker Patrika",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:44:26.751Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "category"
-    },
-    {
-      "id": "ajkerpatrika-ladesh-joypurhat-ajphaxgatnxlw",
-      "title": "পাঁচবিবি সীমান্তে পড়ে ছিল বৃদ্ধের মরদেহ",
-      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajphaxgatnxlw",
-      "source": "Ajker Patrika",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:44:26.751Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "category"
-    },
-    {
-      "id": "ajkerpatrika-ladesh-joypurhat-ajplsk2cbyf0b",
-      "title": "পাঁচবিবিতে বিএনপির ২ গ্রুপের সংঘর্ষ, কার্যালয় ভাঙচুর, আহত ৫",
-      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajplsk2cbyf0b",
-      "source": "Ajker Patrika",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:44:26.751Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "category"
-    },
-    {
-      "id": "dhakapost--country-342240",
-      "title": "পাঁচবিবিতে ভাঙা হলো শেখ মুজিবের দুটি ম্যুরাল",
-      "url": "https://www.dhakapost.com/country/342240",
+      "id": "dhakapost--country-482383",
+      "title": "মোটরসাইকেল ছিনতাইয়ের সন্দেহ, আখক্ষেতে মিলল যুবকের মরদেহ",
+      "url": "https://www.dhakapost.com/country/482383",
       "source": "Dhaka Post",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
+      "publishedAt": "2026-09-12T16:03:45.000Z",
+      "imageUrl": "https://cdn.dhakapost.com/media/imgAll/BG/2026September/asaduddin-20260912220345.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
+    {
+      "id": "dailykaratoa--article-183215",
+      "title": "জয়পুরহাটের পাঁচবিবির ধরঞ্জীতে কিশোরীর ঝুলন্ত মরদেহ উদ্ধার",
+      "url": "https://www.dailykaratoa.com/article/183215",
+      "source": "Daily Karatoa",
+      "publishedAt": "2026-09-10T18:08:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/Screenshot_12_1789042104.png",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-182831",
+      "title": "জয়পুরহাটের পাঁচবিবিতে নিষিদ্ধ চায়না দুয়ারী জাল জব্দ",
+      "url": "https://www.dailykaratoa.com/article/182831",
+      "source": "Daily Karatoa",
+      "publishedAt": "2026-09-07T19:15:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/Screenshot_8_1788786923.png",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-182609",
+      "title": "জয়পুরহাটের পাঁচবিবিতে ১শ’ পিস টাপেন্টাডলসহ যুবক আটক",
+      "url": "https://www.dailykaratoa.com/article/182609",
+      "source": "Daily Karatoa",
+      "publishedAt": "2026-09-05T21:14:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/10_1788621249.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-182499",
+      "title": "জয়পুরহাটের পাঁচবিবিতে স্বেচ্ছাশ্রমে চলাচলের উপযোগী হলো গ্রামীণ সড়ক",
+      "url": "https://www.dailykaratoa.com/article/182499",
+      "source": "Daily Karatoa",
+      "publishedAt": "2026-09-04T23:26:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/31_1788542797.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-181590",
+      "title": "জয়পুরহাটের পাঁচবিবি দলিল লেখক সমিতির নবনির্বাচিত কমিটির শপথ অনুষ্ঠিত",
+      "url": "https://www.dailykaratoa.com/article/181590",
+      "source": "Daily Karatoa",
+      "publishedAt": "2026-08-28T19:56:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/09_1787925381.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-181083",
+      "title": "পাটের দামে স্বস্তি লাভের মুখ দেখছেন জয়পুরহাটের পাঁচবিবি এলাকার কৃষক",
+      "url": "https://www.dailykaratoa.com/article/181083",
+      "source": "Daily Karatoa",
+      "publishedAt": "2026-08-24T00:01:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/33_1787504764.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-180959",
+      "title": "জয়পুরহাটের পাঁচবিবির বাগজানায় দুই মাদক ব্যবসায়ী গ্রেফতার",
+      "url": "https://www.dailykaratoa.com/article/180959",
+      "source": "Daily Karatoa",
+      "publishedAt": "2026-08-22T21:01:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/14_1787410876.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-180941",
+      "title": "জয়পুরহাটের পাঁচবিবিতে ৮০ বোতল ফেনসিডিলসহ আটক- ১",
+      "url": "https://www.dailykaratoa.com/article/180941",
+      "source": "Daily Karatoa",
+      "publishedAt": "2026-08-22T19:40:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/1_Madok_1787329034.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "kalbela--country-news-307205",
+      "title": "বদলির নির্দেশের দুই মাস পরও একই কর্মস্থলে পিআইও",
+      "url": "https://www.kalbela.com/country-news/307205",
+      "source": "Kalbela",
+      "publishedAt": "2026-07-09T00:00:00+06:00",
+      "imageUrl": "https://www.kalbela.com/cache-images/news_photos/2026/07/09/resize-600x315x1x0-image_307205_1783569182.webp",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
+    {
+      "id": "ajkerpatrika-ladesh-joypurhat-ajp4df6l02do3",
+      "title": "জয়পুরহাটে ট্রাকের ধাক্কায় নারীসহ নিহত ২",
+      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajp4df6l02do3",
+      "source": "Ajker Patrika",
+      "publishedAt": "2026-07-07T14:48:35.535Z",
+      "imageUrl": "https://images.ajkerpatrika.com/original_images/jyprht_Rdi43dz.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
+    {
+      "id": "kalbela--country-news-305443",
+      "title": "ধানক্ষেতে মিলল দুই কোটি টাকার স্বর্ণ, আটক ১",
+      "url": "https://www.kalbela.com/country-news/305443",
+      "source": "Kalbela",
+      "publishedAt": "2026-07-03T00:00:00+06:00",
+      "imageUrl": "https://www.kalbela.com/cache-images/news_photos/2026/07/03/resize-600x315x1x0-image_305443_1783083732.webp",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
+    {
+      "id": "dhakapost--country-459556",
+      "title": "জয়পুরহাট সীমান্তে পুশইনের চেষ্টা, সেই বৃদ্ধকে সরিয়ে নিলো বিএসএফ",
+      "url": "https://www.dhakapost.com/country/459556",
+      "source": "Dhaka Post",
+      "publishedAt": "2026-06-15T10:08:34.000Z",
+      "imageUrl": "https://cdn.dhakapost.com/media/imgAll/BG/2026June/bsf-push-in-20260615160834.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -125,9 +246,21 @@
       "url": "https://www.prothomalo.com/bangladesh/district/hmjlzwbmy1",
       "source": "Prothom Alo",
       "publishedAt": "2026-06-14T12:51:53.940Z",
-      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "imageUrl": "https://images.prothomalo.com/prothomalo-bangla/2026-06-14/hq0wq0n2/Joypurhat00.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
       "locationMatch": "panchbibi",
       "sourceType": "api"
+    },
+    {
+      "id": "dhakapost--country-457481",
+      "title": "দাদির উপহারের ভেড়া থেকে সফল খামারি আশিক",
+      "url": "https://www.dhakapost.com/country/457481",
+      "source": "Dhaka Post",
+      "publishedAt": "2026-06-07T16:00:58.000Z",
+      "imageUrl": "https://cdn.dhakapost.com/media/imgAll/BG/2026June/joypurhat-ashik-20260607220058.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
     },
     {
       "id": "prothomalo-bangladesh-district-paxjenn7at",
@@ -135,9 +268,43 @@
       "url": "https://www.prothomalo.com/bangladesh/district/paxjenn7at",
       "source": "Prothom Alo",
       "publishedAt": "2026-06-06T12:49:56.641Z",
-      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "imageUrl": "https://images.prothomalo.com/prothomalo-bangla/2026-06-06/ecx4hm7d/JoypurhatDH0618.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
       "locationMatch": "panchbibi",
       "sourceType": "api"
+    },
+    {
+      "id": "dhakapost--country-446920",
+      "title": "জয়পুরহাটে পুকুরের পানিতে ডুবে দুই ভাইয়ের মৃত্যু",
+      "url": "https://www.dhakapost.com/country/446920",
+      "source": "Dhaka Post",
+      "publishedAt": "2026-04-22T16:56:58.000Z",
+      "imageUrl": "https://cdn.dhakapost.com/media/imgAll/BG/2026April/joypurhat1-20260422225658.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
+    {
+      "id": "kalbela--country-news-284662",
+      "title": "পুকুরে ডুবে প্রাণ গেল দুই ভাইয়ের",
+      "url": "https://www.kalbela.com/country-news/284662",
+      "source": "Kalbela",
+      "publishedAt": "2026-04-22T00:00:00+06:00",
+      "imageUrl": "https://www.kalbela.com/cache-images/news_photos/2026/04/22/resize-600x315x1x0-image_284662_1776877150.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
+    {
+      "id": "ajkerpatrika-ladesh-joypurhat-ajpz7ghzhsai5",
+      "title": "পাঁচবিবিতে পূর্বশত্রুতার জেরে কৃষককে কুপিয়ে জখম",
+      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajpz7ghzhsai5",
+      "source": "Ajker Patrika",
+      "publishedAt": "2026-04-11T06:46:49.206Z",
+      "imageUrl": "https://images.ajkerpatrika.com/original_images/Kupiye-hotta-kpy-hty-Hamla--hml.jpg",
+      "discoveredAt": "2026-09-18T12:15:35.753Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
     }
   ]
 };

@@ -58,8 +58,12 @@ export function filterAndValidate(raw: RawNewsItem, discoveredAt: string): Filte
 
   let locationMatch: 'panchbibi' | 'joypurhat' | 'keyword' | null = null;
 
-  // Check Tier A (Direct Panchbibi)
-  if (matchesAny(titleAndSlug, TIER_A_KEYWORDS)) {
+  // Check Tier A (Direct Panchbibi or dedicated Panchbibi page)
+  if (
+    matchesAny(titleAndSlug, TIER_A_KEYWORDS) ||
+    raw.rawLocation === 'panchbibi' ||
+    raw.rawLocation === 'panchbibi-category'
+  ) {
     locationMatch = 'panchbibi';
   }
   // Check Tier B (Panchbibi unions, localities, institutions)
@@ -87,6 +91,7 @@ export function filterAndValidate(raw: RawNewsItem, discoveredAt: string): Filte
       url: canonicalUrl,
       source: raw.source,
       publishedAt: raw.publishedAt || null,
+      imageUrl: raw.imageUrl || null,
       discoveredAt,
       locationMatch,
       sourceType: raw.sourceType
