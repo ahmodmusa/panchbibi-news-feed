@@ -1,14 +1,114 @@
 /**
  * Panchbibi News Feed - Client-side fallback feed
- * Generated: 2026-09-18T11:17:13.718Z
+ * Generated: 2026-09-18T11:44:26.751Z
  * Total items: 13
  */
 (function() {
   window.PANCHBIBI_NEWS_FEED = {
-  "generatedAt": "2026-09-18T11:17:13.718Z",
+  "generatedAt": "2026-09-18T11:44:26.751Z",
   "count": 13,
   "sources": 4,
   "items": [
+    {
+      "id": "dailykaratoa--article-183984",
+      "title": "জয়পুরহাটের পাঁচবিবিতে জমি নিয়ে বিরোধ বাড়িতে হামলা ও লুটপাট",
+      "url": "https://www.dailykaratoa.com/article/183984",
+      "source": "Daily Karatoa",
+      "publishedAt": null,
+      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-183851",
+      "title": "জয়পুরহাটের পাঁচবিবি বিজনেস ম্যানেজমেন্ট ইনস্টিটিউট ভারপ্রাপ্তকে সরিয়ে চেয়ারে বসলেন প্রতিষ্ঠাতা অধ্যক্ষ",
+      "url": "https://www.dailykaratoa.com/article/183851",
+      "source": "Daily Karatoa",
+      "publishedAt": null,
+      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-183838",
+      "title": "জয়পুরহাটের পাঁচবিবিতে মাদক ব্যবসায়ীদের বিরুদ্ধে মানববন্ধন",
+      "url": "https://www.dailykaratoa.com/article/183838",
+      "source": "Daily Karatoa",
+      "publishedAt": null,
+      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-183810",
+      "title": "জয়পুরহাটের পাঁচবিবিতে আখক্ষেত থেকে নিখোঁজ তমেজুলের মরদেহ উদ্ধার",
+      "url": "https://www.dailykaratoa.com/article/183810",
+      "source": "Daily Karatoa",
+      "publishedAt": null,
+      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-183440",
+      "title": "জয়পুরহাটের পাঁচবিবির ধরঞ্জীতে কিশোরীর ঝুলন্ত মরদেহ উদ্ধার",
+      "url": "https://www.dailykaratoa.com/article/183440",
+      "source": "Daily Karatoa",
+      "publishedAt": null,
+      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "ajkerpatrika-ladesh-joypurhat-ajpsnghzmtqjx",
+      "title": "পাঁচবিবিতে সড়কের গাছ কাটায় তিনজনের কারাদণ্ড",
+      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajpsnghzmtqjx",
+      "source": "Ajker Patrika",
+      "publishedAt": null,
+      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
+    {
+      "id": "ajkerpatrika-ladesh-joypurhat-ajpz7ghzhsai5",
+      "title": "পাঁচবিবিতে পূর্বশত্রুতার জেরে কৃষককে কুপিয়ে জখম",
+      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajpz7ghzhsai5",
+      "source": "Ajker Patrika",
+      "publishedAt": null,
+      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
+    {
+      "id": "ajkerpatrika-ladesh-joypurhat-ajpeegg48ckeg",
+      "title": "পাঁচবিবি সীমান্তে ফের কাঁটাতারের বেড়া নির্মাণের চেষ্টা বিএসএফের, উত্তেজনা",
+      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajpeegg48ckeg",
+      "source": "Ajker Patrika",
+      "publishedAt": null,
+      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
+    {
+      "id": "ajkerpatrika-ladesh-joypurhat-ajphaxgatnxlw",
+      "title": "পাঁচবিবি সীমান্তে পড়ে ছিল বৃদ্ধের মরদেহ",
+      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajphaxgatnxlw",
+      "source": "Ajker Patrika",
+      "publishedAt": null,
+      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
+    {
+      "id": "ajkerpatrika-ladesh-joypurhat-ajplsk2cbyf0b",
+      "title": "পাঁচবিবিতে বিএনপির ২ গ্রুপের সংঘর্ষ, কার্যালয় ভাঙচুর, আহত ৫",
+      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajplsk2cbyf0b",
+      "source": "Ajker Patrika",
+      "publishedAt": null,
+      "discoveredAt": "2026-09-18T11:44:26.751Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
     {
       "id": "dhakapost--country-342240",
       "title": "পাঁচবিবিতে ভাঙা হলো শেখ মুজিবের দুটি ম্যুরাল",
@@ -20,112 +120,12 @@
       "sourceType": "category"
     },
     {
-      "id": "dailykaratoa--article-183984",
-      "title": "জয়পুরহাটের পাঁচবিবিতে জমি নিয়ে বিরোধ বাড়িতে হামলা ও লুটপাট",
-      "url": "https://www.dailykaratoa.com/article/183984",
-      "source": "Daily Karatoa",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "search"
-    },
-    {
-      "id": "dailykaratoa--article-183851",
-      "title": "জয়পুরহাটের পাঁচবিবি বিজনেস ম্যানেজমেন্ট ইনস্টিটিউট ভারপ্রাপ্তকে সরিয়ে চেয়ারে বসলেন প্রতিষ্ঠাতা অধ্যক্ষ",
-      "url": "https://www.dailykaratoa.com/article/183851",
-      "source": "Daily Karatoa",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "search"
-    },
-    {
-      "id": "dailykaratoa--article-183838",
-      "title": "জয়পুরহাটের পাঁচবিবিতে মাদক ব্যবসায়ীদের বিরুদ্ধে মানববন্ধন",
-      "url": "https://www.dailykaratoa.com/article/183838",
-      "source": "Daily Karatoa",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "search"
-    },
-    {
-      "id": "dailykaratoa--article-183810",
-      "title": "জয়পুরহাটের পাঁচবিবিতে আখক্ষেত থেকে নিখোঁজ তমেজুলের মরদেহ উদ্ধার",
-      "url": "https://www.dailykaratoa.com/article/183810",
-      "source": "Daily Karatoa",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "search"
-    },
-    {
-      "id": "dailykaratoa--article-183440",
-      "title": "জয়পুরহাটের পাঁচবিবির ধরঞ্জীতে কিশোরীর ঝুলন্ত মরদেহ উদ্ধার",
-      "url": "https://www.dailykaratoa.com/article/183440",
-      "source": "Daily Karatoa",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "search"
-    },
-    {
-      "id": "ajkerpatrika-ladesh-joypurhat-ajpsnghzmtqjx",
-      "title": "পাঁচবিবিতে সড়কের গাছ কাটায় তিনজনের কারাদণ্ড",
-      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajpsnghzmtqjx",
-      "source": "Ajker Patrika",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "category"
-    },
-    {
-      "id": "ajkerpatrika-ladesh-joypurhat-ajpz7ghzhsai5",
-      "title": "পাঁচবিবিতে পূর্বশত্রুতার জেরে কৃষককে কুপিয়ে জখম",
-      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajpz7ghzhsai5",
-      "source": "Ajker Patrika",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "category"
-    },
-    {
-      "id": "ajkerpatrika-ladesh-joypurhat-ajpeegg48ckeg",
-      "title": "পাঁচবিবি সীমান্তে ফের কাঁটাতারের বেড়া নির্মাণের চেষ্টা বিএসএফের, উত্তেজনা",
-      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajpeegg48ckeg",
-      "source": "Ajker Patrika",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "category"
-    },
-    {
-      "id": "ajkerpatrika-ladesh-joypurhat-ajphaxgatnxlw",
-      "title": "পাঁচবিবি সীমান্তে পড়ে ছিল বৃদ্ধের মরদেহ",
-      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajphaxgatnxlw",
-      "source": "Ajker Patrika",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "category"
-    },
-    {
-      "id": "ajkerpatrika-ladesh-joypurhat-ajplsk2cbyf0b",
-      "title": "পাঁচবিবিতে বিএনপির ২ গ্রুপের সংঘর্ষ, কার্যালয় ভাঙচুর, আহত ৫",
-      "url": "https://www.ajkerpatrika.com/bangladesh/joypurhat/ajplsk2cbyf0b",
-      "source": "Ajker Patrika",
-      "publishedAt": null,
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "category"
-    },
-    {
       "id": "prothomalo-bangladesh-district-hmjlzwbmy1",
       "title": "পাঁচবিবি সীমান্তে বৃদ্ধকে পুশ ইনের চেষ্টা বিএসএফের, বিজিবির পুশব্যাক",
       "url": "https://www.prothomalo.com/bangladesh/district/hmjlzwbmy1",
       "source": "Prothom Alo",
       "publishedAt": "2026-06-14T12:51:53.940Z",
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
+      "discoveredAt": "2026-09-18T11:44:26.751Z",
       "locationMatch": "panchbibi",
       "sourceType": "api"
     },
@@ -135,7 +135,7 @@
       "url": "https://www.prothomalo.com/bangladesh/district/paxjenn7at",
       "source": "Prothom Alo",
       "publishedAt": "2026-06-06T12:49:56.641Z",
-      "discoveredAt": "2026-09-18T11:17:13.718Z",
+      "discoveredAt": "2026-09-18T11:44:26.751Z",
       "locationMatch": "panchbibi",
       "sourceType": "api"
     }
