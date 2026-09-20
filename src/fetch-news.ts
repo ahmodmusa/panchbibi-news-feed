@@ -211,9 +211,20 @@ async function main() {
   // Filter and validate raw items for Panchbibi relevance
   const validatedNewItems: NewsItem[] = [];
   let rejectedCount = 0;
+  const sourceMatchedCounts: Record<string, number> = {};
   const sourceAcceptedCounts: Record<string, number> = {};
 
   for (const raw of allRawItems) {
+    const titleAndSlug = `${raw.title || ''} ${raw.url || ''}`.toLowerCase();
+    const isMatched = titleAndSlug.includes('পাঁচবিবি') ||
+      raw.rawLocation === 'panchbibi' ||
+      raw.rawLocation === 'panchbibi-category' ||
+      raw.rawLocation === 'panchbibi-search';
+
+    if (isMatched) {
+      sourceMatchedCounts[raw.source] = (sourceMatchedCounts[raw.source] || 0) + 1;
+    }
+
     const filterRes = filterAndValidate(raw, discoveredAt);
     if (filterRes.accepted && filterRes.item) {
       validatedNewItems.push(filterRes.item);
@@ -237,47 +248,71 @@ async function main() {
   const mergedItems = deduplicateAndMerge(enrichedHistoricalItems, enrichedNewItems, 100, 180);
   console.log(`[Panchbibi News Feed] Merged & deduplicated total items: ${mergedItems.length}`);
 
-  // Compute Source Health Report metrics
-  console.log('\n' + '='.repeat(90));
-  console.log('                                SOURCE HEALTH REPORT');
-  console.log('='.repeat(90));
-  console.log(
-    'Source Name'.padEnd(20) +
-    'Status'.padEnd(10) +
-    'Raw Fetched'.padEnd(14) +
-    'Accepted'.padEnd(12) +
-    'In Feed'.padEnd(10) +
-    'Dates %'.padEnd(12) +
-    'Images %'.padEnd(12)
-  );
-  console.log('-'.repeat(90));
+  // Calculate metrics for diagnostics
+  const historicalUrls = new Set(enrichedHistoricalItems.map(i => i.url));
+  const duplicatesSkipped = enrichedNewItems.filter(i => historicalUrls.has(i.url)).length;
+  const newAccepted = enrichedNewItems.length - duplicatesSkipped;
+  const newestItem = mergedItems.find(i => !!i.publishedAt);
+  const newestArticleDate = newestItem?.publishedAt ? newestItem.publishedAt.slice(0, 10) : 'N/A';
 
+  // Output compact diagnostic summary
+  console.log('\n' + '='.repeat(50));
+  console.log('Panchbibi News Feed Run\n');
   for (const adapter of ALL_ADAPTERS) {
     const name = adapter.name;
-    const isFailed = failedSources.includes(name);
-    const status = isFailed ? 'FAILED' : 'OK';
     const rawFetched = sourceRawCounts[name] || 0;
+    const matched = sourceMatchedCounts[name] || 0;
     const accepted = sourceAcceptedCounts[name] || 0;
-    const inFeedItems = mergedItems.filter(i => i.source === name);
-    const inFeedCount = inFeedItems.length;
+    const errors = failedSources.includes(name) ? 1 : 0;
 
-    const datesCount = inFeedItems.filter(i => !!i.publishedAt).length;
-    const imagesCount = inFeedItems.filter(i => !!i.imageUrl).length;
-
-    const datesPct = inFeedCount > 0 ? `${((datesCount / inFeedCount) * 100).toFixed(0)}% (${datesCount}/${inFeedCount})` : 'N/A';
-    const imagesPct = inFeedCount > 0 ? `${((imagesCount / inFeedCount) * 100).toFixed(0)}% (${imagesCount}/${inFeedCount})` : 'N/A';
-
-    console.log(
-      name.padEnd(20) +
-      status.padEnd(10) +
-      String(rawFetched).padEnd(14) +
-      String(accepted).padEnd(12) +
-      String(inFeedCount).padEnd(10) +
-      datesPct.padEnd(12) +
-      imagesPct.padEnd(12)
-    );
+    console.log(`${name}`);
+    console.log(`Fetched: ${rawFetched}`);
+    console.log(`Matched: ${matched}`);
+    console.log(`Accepted: ${accepted}`);
+    console.log(`Errors: ${errors}\n`);
   }
-  console.log('='.repeat(90) + '\n');
+  console.log(`New accepted: ${newAccepted}`);
+  console.log(`Duplicates skipped: ${duplicatesSkipped}`);
+  console.log(`Source failures: ${failedSources.length}`);
+  console.log(`Feed total: ${mergedItems.length}`);
+  console.log(`Newest article: ${newestArticleDate}`);
+  console.log('='.repeat(50) + '\n');
+
+  // Write GitHub Actions Job Step Summary if environment variable exists
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    try {
+      const summaryLines: string[] = [
+        `## 📰 Panchbibi News Feed Run Summary`,
+        ``,
+        `| Source | Status | Fetched | Matched | Accepted | Errors |`,
+        `|:---|:---:|:---:|:---:|:---:|:---:|`
+      ];
+
+      for (const adapter of ALL_ADAPTERS) {
+        const name = adapter.name;
+        const isFailed = failedSources.includes(name);
+        const status = isFailed ? '❌ FAILED' : '✅ OK';
+        const rawFetched = sourceRawCounts[name] || 0;
+        const matched = sourceMatchedCounts[name] || 0;
+        const accepted = sourceAcceptedCounts[name] || 0;
+        const errors = isFailed ? 1 : 0;
+        summaryLines.push(`| **${name}** | ${status} | ${rawFetched} | ${matched} | ${accepted} | ${errors} |`);
+      }
+
+      summaryLines.push(``);
+      summaryLines.push(`- **New accepted:** ${newAccepted}`);
+      summaryLines.push(`- **Duplicates skipped:** ${duplicatesSkipped}`);
+      summaryLines.push(`- **Source failures:** ${failedSources.length}`);
+      summaryLines.push(`- **Feed total:** ${mergedItems.length}`);
+      summaryLines.push(`- **Newest article:** ${newestArticleDate}`);
+      summaryLines.push(``);
+
+      fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, summaryLines.join('\n'), 'utf8');
+      console.log('[Panchbibi News Feed] Successfully appended summary to GITHUB_STEP_SUMMARY');
+    } catch (e: any) {
+      console.warn('[Panchbibi News Feed] Failed writing to GITHUB_STEP_SUMMARY:', e.message);
+    }
+  }
 
   // Check if content changed
   const oldFingerprint = existingFeed ? computeItemsFingerprint(existingFeed.items) : '';

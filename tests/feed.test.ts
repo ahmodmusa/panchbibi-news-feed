@@ -237,3 +237,180 @@ test('Kalbela card parser extracts article ID, normalizes URLs, and captures thu
   assert.equal(items[1].title, 'বাগজানায় বৃক্ষরোপণ কর্মসূচি পালিত');
 });
 
+test('parseBanglaDate parses RFC 2822 dates from RSS feeds and short month names', () => {
+  const rfcDate = parseBanglaDate('Sat, 19 Sep 2026 11:50:00 GMT');
+  assert.ok(rfcDate, 'Should parse RFC 2822 date');
+  assert.equal(rfcDate, '2026-09-19T11:50:00.000Z');
+
+  const stdDate = parseBanglaDate('19 Sep 2026 11:50:00 GMT');
+  assert.ok(stdDate, 'Should parse standard English date with short month');
+  assert.equal(stdDate, '2026-09-19T11:50:00.000Z');
+
+  const isoOffset = parseBanglaDate('2026-09-19T19:57:22+06:00');
+  assert.ok(isoOffset, 'Should parse ISO string with offset');
+  assert.equal(isoOffset, '2026-09-19T13:57:22.000Z');
+});
+
+test('Jobabdihi card and detail parser extracts 19 September regression article', async () => {
+  const cheerio = await import('cheerio');
+  const mockListingHtml = `
+    <div>
+      <a href="https://www.jobabdihi.com/news/124643">
+        <img src="https://www.jobabdihi.com/2026/09/19/JD_87.1789826242.jpg" alt="ছবি" />
+        <br>পাঁচবিবিতে জমি অধিগ্রহণে ন্যায্য মূল্যের দাবিতে মানববন্ধন
+      </a>
+    </div>
+  `;
+
+  const $list = cheerio.load(mockListingHtml);
+  const linkEl = $list('a[href*="/news/"]').first();
+  const rawHref = linkEl.attr('href') || '';
+  const rawTitle = linkEl.text().trim();
+  const cardImg = linkEl.find('img').attr('src');
+
+  const canonicalUrl = canonicalizeUrl(rawHref, 'https://www.jobabdihi.com');
+  const title = cleanTitle(rawTitle);
+
+  assert.equal(canonicalUrl, 'https://www.jobabdihi.com/news/124643');
+  assert.equal(title, 'পাঁচবিবিতে জমি অধিগ্রহণে ন্যায্য মূল্যের দাবিতে মানববন্ধন');
+  assert.equal(cardImg, 'https://www.jobabdihi.com/2026/09/19/JD_87.1789826242.jpg');
+
+  // Detail JSON-LD mock
+  const mockDetailHtml = `
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "পাঁচবিবিতে জমি অধিগ্রহণে ন্যায্য মূল্যের দাবিতে মানববন্ধন",
+      "image": ["https://www.jobabdihi.com/2026/09/19/JD_87.1789826242.jpg"],
+      "datePublished": "2026-09-19T19:57:22+06:00"
+    }
+    </script>
+  `;
+
+  const $detail = cheerio.load(mockDetailHtml);
+  let publishedAt: string | null = null;
+  $detail('script[type="application/ld+json"]').each((_, el) => {
+    const data = JSON.parse($detail(el).html() || '{}');
+    if (data.datePublished) {
+      publishedAt = parseBanglaDate(data.datePublished);
+    }
+  });
+
+  assert.equal(publishedAt, '2026-09-19T13:57:22.000Z');
+
+  // Relevance check
+  const validated = filterAndValidate({
+    title,
+    url: canonicalUrl!,
+    source: 'Jobabdihi',
+    publishedAt,
+    imageUrl: cardImg || null,
+    sourceType: 'category'
+  }, '2026-09-20T00:00:00Z');
+
+  assert.equal(validated.accepted, true);
+  assert.equal(validated.item?.locationMatch, 'panchbibi');
+});
+
+test('Daily Inqilab RSS parser extracts and cleans 19 September regression article', () => {
+  const rawRssTitle = 'পাঁচবিবি ঐতিহ্যবাহী গ্রামীণ লাঠি খেলা অনুষ্ঠিত - দৈনিক ইনকিলাব';
+  const pubDateStr = 'Sat, 19 Sep 2026 11:50:00 GMT';
+  const inqilabUrl = 'https://dailyinqilab.com/bangladesh/news/941903';
+
+  // 1. Strip publisher suffix
+  const cleanHeadline = cleanTitle(rawRssTitle.replace(/\s*[-–|]\s*দৈনিক ইনকিলাব\s*$/i, ''));
+  assert.equal(cleanHeadline, 'পাঁচবিবি ঐতিহ্যবাহী গ্রামীণ লাঠি খেলা অনুষ্ঠিত');
+
+  // 2. Parse date
+  const publishedAt = parseBanglaDate(pubDateStr);
+  assert.equal(publishedAt, '2026-09-19T11:50:00.000Z');
+
+  // 3. Relevance validation
+  const validated = filterAndValidate({
+    title: cleanHeadline,
+    url: inqilabUrl,
+    source: 'Daily Inqilab',
+    publishedAt,
+    imageUrl: null,
+    sourceType: 'search'
+  }, '2026-09-20T00:00:00Z');
+
+  assert.equal(validated.accepted, true);
+  assert.equal(validated.item?.locationMatch, 'panchbibi');
+});
+
+test('deduplicateAndMerge preserves same event reported by two different publishers', () => {
+  const jobabdihiItem: NewsItem = {
+    id: 'jobabdihi-124643',
+    title: 'পাঁচবিবিতে জমি অধিগ্রহণে ন্যায্য মূল্যের দাবিতে মানববন্ধন',
+    url: 'https://www.jobabdihi.com/news/124643',
+    source: 'Jobabdihi',
+    publishedAt: '2026-09-19T13:57:22.000Z',
+    discoveredAt: '2026-09-20T00:00:00Z',
+    locationMatch: 'panchbibi',
+    sourceType: 'category'
+  };
+
+  const inqilabItem: NewsItem = {
+    id: 'dailyinqilab-941903',
+    title: 'পাঁচবিবিতে জমি অধিগ্রহণে ন্যায্য মূল্যের দাবিতে মানববন্ধন',
+    url: 'https://dailyinqilab.com/bangladesh/news/941903',
+    source: 'Daily Inqilab',
+    publishedAt: '2026-09-19T11:50:00.000Z',
+    discoveredAt: '2026-09-20T00:00:00Z',
+    locationMatch: 'panchbibi',
+    sourceType: 'search'
+  };
+
+  const merged = deduplicateAndMerge([jobabdihiItem], [inqilabItem]);
+
+  // Both publishers must be preserved
+  assert.equal(merged.length, 2);
+  const sources = merged.map(i => i.source);
+  assert.ok(sources.includes('Jobabdihi'));
+  assert.ok(sources.includes('Daily Inqilab'));
+});
+
+test('Source failure isolation ensures single adapter failure does not prevent feed generation', async () => {
+  const mockAdapters = [
+    {
+      name: 'Working Source',
+      fetch: async () => [{
+        title: 'পাঁচবিবিতে নতুন স্বাস্থ্যসেবা কেন্দ্র চালু',
+        url: 'https://example.com/news/1',
+        source: 'Working Source',
+        sourceType: 'api' as const
+      }]
+    },
+    {
+      name: 'Broken Source',
+      fetch: async () => {
+        throw new Error('Network timeout or 503 Service Unavailable');
+      }
+    }
+  ];
+
+  const results = await Promise.allSettled(
+    mockAdapters.map(adapter => adapter.fetch())
+  );
+
+  const activeItems: any[] = [];
+  const failed: string[] = [];
+
+  for (let i = 0; i < results.length; i++) {
+    const res = results[i];
+    if (res.status === 'fulfilled') {
+      activeItems.push(...res.value);
+    } else {
+      failed.push(mockAdapters[i].name);
+    }
+  }
+
+  assert.equal(activeItems.length, 1);
+  assert.equal(activeItems[0].title, 'পাঁচবিবিতে নতুন স্বাস্থ্যসেবা কেন্দ্র চালু');
+  assert.equal(failed.length, 1);
+  assert.equal(failed[0], 'Broken Source');
+});
+
+

@@ -107,18 +107,18 @@ const BANGLA_NUM_MAP: Record<string, string> = {
 };
 
 const BANGLA_MONTH_MAP: Record<string, number> = {
-  'জানুয়ারি': 0, 'জানুয়ারি': 0, 'january': 0,
-  'ফেব্রুয়ারি': 1, 'ফেব্রুয়ারি': 1, 'february': 1,
-  'মার্চ': 2, 'march': 2,
-  'এপ্রিল': 3, 'april': 3,
+  'জানুয়ারি': 0, 'জানুয়ারি': 0, 'january': 0, 'jan': 0,
+  'ফেব্রুয়ারি': 1, 'ফেব্রুয়ারি': 1, 'february': 1, 'feb': 1,
+  'মার্চ': 2, 'march': 2, 'mar': 2,
+  'এপ্রিল': 3, 'april': 3, 'apr': 3,
   'মে': 4, 'may': 4,
-  'জুন': 5, 'june': 5,
-  'জুলাই': 6, 'july': 6,
-  'আগস্ট': 7, 'august': 7,
-  'সেপ্টেম্বর': 8, 'september': 8,
-  'অক্টোবর': 9, 'october': 9,
-  'নভেম্বর': 10, 'november': 10,
-  'ডিসেম্বর': 11, 'december': 11
+  'জুন': 5, 'june': 5, 'jun': 5,
+  'জুলাই': 6, 'july': 6, 'jul': 6,
+  'আগস্ট': 7, 'august': 7, 'aug': 7,
+  'সেপ্টেম্বর': 8, 'september': 8, 'sep': 8, 'sept': 8,
+  'অক্টোবর': 9, 'october': 9, 'oct': 9,
+  'নভেম্বর': 10, 'november': 10, 'nov': 10,
+  'ডিসেম্বর': 11, 'december': 11, 'dec': 11
 };
 
 export function convertBanglaDigits(str: string): string {
@@ -141,6 +141,14 @@ export function parseBanglaDate(banglaStr: string): string | null {
     if (/^\d{4}-\d{2}-\d{2}/.test(trimmed)) {
       const d = new Date(trimmed);
       if (!isNaN(d.getTime())) return d.toISOString();
+    }
+
+    // Direct check for standard RFC/English dates (e.g. "Sat, 19 Sep 2026 11:50:00 GMT")
+    if (!/^\d+$/.test(trimmed) && /[a-zA-Z]/.test(trimmed)) {
+      const directDate = new Date(trimmed);
+      if (!isNaN(directDate.getTime()) && directDate.getFullYear() > 2000 && directDate.getFullYear() < 2100) {
+        return directDate.toISOString();
+      }
     }
 
     // Strip common labels and day of week

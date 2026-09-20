@@ -6,6 +6,8 @@ import { dailykaratoaAdapter } from './dailykaratoa.js';
 import { ajkerpatrikaAdapter } from './ajkerpatrika.js';
 import { dailybangladeshAdapter } from './dailybangladesh.js';
 import { kalbelaAdapter } from './kalbela.js';
+import { jobabdihiAdapter } from './jobabdihi.js';
+import { dailyinqilabAdapter } from './dailyinqilab.js';
 
 export const ALL_ADAPTERS: SourceAdapter[] = [
   dhakapostAdapter,
@@ -14,5 +16,7 @@ export const ALL_ADAPTERS: SourceAdapter[] = [
   dailykaratoaAdapter,
   ajkerpatrikaAdapter,
   dailybangladeshAdapter,
-  kalbelaAdapter
+  kalbelaAdapter,
+  jobabdihiAdapter,
+  dailyinqilabAdapter
 ];
