@@ -41,7 +41,7 @@ export const prothomaloAdapter: SourceAdapter = {
       }
 
       const imageUrl = story['hero-image-s3-key']
-        ? `https://images.prothomalo.com/${story['hero-image-s3-key']}`
+        ? `https://media.prothomalo.com/${story['hero-image-s3-key']}`
         : null;
 
       results.push({

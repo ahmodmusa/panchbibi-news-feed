@@ -5,6 +5,7 @@ import { RawNewsItem, NewsItem, NewsFeed } from './types.js';
 import { filterAndValidate } from './filter.js';
 import { deduplicateAndMerge } from './dedupe.js';
 import { enrichNewsItems } from './enrich.js';
+import { validateNewsItemImages } from './validate-image.js';
 
 const PUBLIC_DIR = path.resolve(process.cwd(), 'public');
 const JSON_FILE = path.join(PUBLIC_DIR, 'news.json');
@@ -43,7 +44,7 @@ function serializeToJs(feed: NewsFeed): string {
 function generateStatusHtml(feed: NewsFeed, activeSources: string[], failedSources: string[]): string {
   const itemsList = feed.items.slice(0, 20).map(i => `
     <li style="margin-bottom: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
-      ${i.imageUrl ? `<img src="${escapeHtml(i.imageUrl)}" alt="" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0; background: #e2e8f0;" loading="lazy">` : ''}
+      ${i.imageUrl ? `<img src="${escapeHtml(i.imageUrl)}" alt="${escapeHtml(i.title)}" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px; flex-shrink: 0; background: #e2e8f0;" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}
       <div>
         <a href="${i.url}" target="_blank" rel="noopener noreferrer" style="color: #0284c7; text-decoration: none; font-weight: 500; display: block;">
           ${escapeHtml(i.title)}
@@ -245,8 +246,14 @@ async function main() {
   const enrichedHistoricalItems = await enrichNewsItems(purgedExistingItems, 4);
 
   // Deduplicate and merge with rolling history (up to 100 items, 180 days)
-  const mergedItems = deduplicateAndMerge(enrichedHistoricalItems, enrichedNewItems, 100, 180);
-  console.log(`[Panchbibi News Feed] Merged & deduplicated total items: ${mergedItems.length}`);
+  const candidateItems = deduplicateAndMerge(enrichedHistoricalItems, enrichedNewItems, 100, 180);
+  console.log(`[Panchbibi News Feed] Merged & deduplicated total items: ${candidateItems.length}`);
+
+  // Validate candidate images to eliminate broken or inaccessible image URLs
+  console.log(`[Panchbibi News Feed] Validating candidate thumbnail images...`);
+  const mergedItems = await validateNewsItemImages(candidateItems, 6);
+  const validImagesCount = mergedItems.filter(i => !!i.imageUrl).length;
+  console.log(`[Panchbibi News Feed] Image validation complete: ${validImagesCount} valid images preserved.`);
 
   // Calculate metrics for diagnostics
   const historicalUrls = new Set(enrichedHistoricalItems.map(i => i.url));

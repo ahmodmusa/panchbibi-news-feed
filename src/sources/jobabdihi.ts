@@ -15,6 +15,25 @@ function matchesPanchbibiKeywords(text: string): boolean {
   return false;
 }
 
+function normalizePublisherImageUrl(rawImg: string | null | undefined, baseUrl: string): string | null {
+  if (!rawImg || typeof rawImg !== 'string') return null;
+  let clean = rawImg.trim();
+  if (clean.length < 5) return null;
+
+  // Unescape backslashes if escaped
+  clean = clean.replace(/\\\//g, '/').replace(/\\"/g, '"');
+
+  // Protocol relative
+  if (clean.startsWith('//')) {
+    clean = 'https:' + clean;
+  }
+
+  const canonical = canonicalizeUrl(clean, baseUrl);
+  if (!canonical) return null;
+  if (canonical.includes('1x1') || canonical.endsWith('.gif')) return null;
+  return canonical;
+}
+
 export const jobabdihiAdapter: SourceAdapter = {
   name: 'Jobabdihi',
   sourceType: 'category',
@@ -53,7 +72,7 @@ export const jobabdihiAdapter: SourceAdapter = {
             url: canonical,
             source: 'Jobabdihi',
             publishedAt: null,
-            imageUrl: cardImg ? canonicalizeUrl(cardImg, 'https://www.jobabdihi.com') : null,
+            imageUrl: cardImg ? normalizePublisherImageUrl(cardImg, 'https://www.jobabdihi.com') : null,
             sourceType: 'category',
             rawLocation: 'rajshahi-category'
           });
@@ -70,27 +89,47 @@ export const jobabdihiAdapter: SourceAdapter = {
           const detailHtml = await fetchText(item.url, 8000);
           const $ = cheerio.load(detailHtml);
 
-          // 1. JSON-LD structured data (NewsArticle)
+          let candidateImage: string | null = null;
+          const cardImg = item.imageUrl;
+
+          // 1. JSON-LD structured data (NewsArticle.image)
           $('script[type="application/ld+json"]').each((_, el) => {
             try {
               const data = JSON.parse($(el).html() || '{}');
               if (data.datePublished && !item.publishedAt) {
                 item.publishedAt = parseBanglaDate(data.datePublished);
               }
-              if (data.image && !item.imageUrl) {
+              if (data.image && !candidateImage) {
                 const img = Array.isArray(data.image)
                   ? data.image[0]
                   : (typeof data.image === 'string' ? data.image : data.image?.url);
-                if (img) item.imageUrl = canonicalizeUrl(img, 'https://www.jobabdihi.com');
+                const norm = normalizePublisherImageUrl(img, 'https://www.jobabdihi.com');
+                if (norm) candidateImage = norm;
               }
             } catch {}
           });
 
-          // 2. Fallback to OpenGraph / Meta
-          if (!item.imageUrl) {
-            const ogImg = $('meta[property="og:image"]').attr('content');
-            if (ogImg) item.imageUrl = canonicalizeUrl(ogImg, 'https://www.jobabdihi.com');
+          // 2. OpenGraph fallback (og:image)
+          if (!candidateImage) {
+            const ogImg = $('meta[property="og:image"]').attr('content') ||
+              $('meta[property="og:image:url"]').attr('content');
+            const norm = normalizePublisherImageUrl(ogImg, 'https://www.jobabdihi.com');
+            if (norm) candidateImage = norm;
           }
+
+          // 3. Twitter fallback (twitter:image)
+          if (!candidateImage) {
+            const twImg = $('meta[name="twitter:image"]').attr('content');
+            const norm = normalizePublisherImageUrl(twImg, 'https://www.jobabdihi.com');
+            if (norm) candidateImage = norm;
+          }
+
+          // 4. Listing-card fallback
+          if (!candidateImage && cardImg) {
+            candidateImage = cardImg;
+          }
+
+          item.imageUrl = candidateImage;
 
           if (!item.publishedAt) {
             const ogDate = $('meta[property="article:published_time"]').attr('content');

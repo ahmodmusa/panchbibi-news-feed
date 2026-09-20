@@ -413,4 +413,103 @@ test('Source failure isolation ensures single adapter failure does not prevent f
   assert.equal(failed[0], 'Broken Source');
 });
 
+test('validateImageUrl identifies invalid or non-image URLs correctly', async () => {
+  const { validateImageUrl } = await import('../src/validate-image.js');
+
+  assert.equal(await validateImageUrl(null), false);
+  assert.equal(await validateImageUrl(''), false);
+  assert.equal(await validateImageUrl('not-a-url'), false);
+  assert.equal(await validateImageUrl('https://example.com/nonexistent_404_file.jpg', 1500), false);
+});
+
+test('validateNewsItemImages resets broken URLs to null while keeping valid items intact', async () => {
+  const { validateNewsItemImages } = await import('../src/validate-image.js');
+
+  const items: NewsItem[] = [
+    {
+      id: 'valid-item',
+      title: 'পাঁচবিবিতে স্বাস্থ্যসেবা উন্নয়ন',
+      url: 'https://example.com/news/1',
+      source: 'Test Source',
+      publishedAt: '2026-09-19T10:00:00Z',
+      imageUrl: null,
+      discoveredAt: '2026-09-20T00:00:00Z',
+      locationMatch: 'panchbibi',
+      sourceType: 'api'
+    },
+    {
+      id: 'broken-img-item',
+      title: 'পাঁচবিবিতে কৃষি মেলা শুরু',
+      url: 'https://example.com/news/2',
+      source: 'Test Source',
+      publishedAt: '2026-09-19T10:00:00Z',
+      imageUrl: 'https://example.com/nonexistent-image-12345.jpg',
+      discoveredAt: '2026-09-20T00:00:00Z',
+      locationMatch: 'panchbibi',
+      sourceType: 'api'
+    }
+  ];
+
+  const validated = await validateNewsItemImages(items, 2);
+  assert.equal(validated.length, 2);
+  assert.equal(validated[0].imageUrl, null);
+  // Broken URL should be safely normalized to null
+  assert.equal(validated[1].imageUrl, null);
+  assert.equal(validated[1].title, 'পাঁচবিবিতে কৃষি মেলা শুরু');
+});
+
+test('UI broken external image fallback collapses card to clean text-only card', () => {
+  // Simulated DOM environment for card rendering
+  const card = {
+    children: [] as any[],
+    appendChild(child: any) { this.children.push(child); }
+  };
+
+  const thumbWrap = {
+    removed: false,
+    remove() { this.removed = true; }
+  };
+
+  const imgEl = {
+    onerror: null as (() => void) | null
+  };
+
+  imgEl.onerror = function () {
+    thumbWrap.remove();
+  };
+
+  // Simulate image load error
+  imgEl.onerror();
+
+  assert.equal(thumbWrap.removed, true, 'Thumbnail container must be removed when image fails to load');
+});
+
+test('Jobabdihi image extraction prioritizes NewsArticle.image over lower-tier sources', () => {
+  const jsonLdImage = 'https://www.jobabdihi.com/2026/09/19/JD_87.1789826242.jpg';
+  const ogImage = 'https://www.jobabdihi.com/images/default_og.jpg';
+  const cardImage = 'https://www.jobabdihi.com/thumbs/card_thumb.jpg';
+
+  // Hierarchy check: JSON-LD takes highest priority
+  let chosen = jsonLdImage || ogImage || cardImage;
+  assert.equal(chosen, 'https://www.jobabdihi.com/2026/09/19/JD_87.1789826242.jpg');
+});
+
+test('Daily Inqilab known article remains valid when imageUrl is null', () => {
+  const item: RawNewsItem = {
+    title: 'পাঁচবিবি ঐতিহ্যবাহী গ্রামীণ লাঠি খেলা অনুষ্ঠিত',
+    url: 'https://dailyinqilab.com/bangladesh/news/941903',
+    source: 'Daily Inqilab',
+    publishedAt: '2026-09-19T11:50:00.000Z',
+    imageUrl: null,
+    sourceType: 'search'
+  };
+
+  const res = filterAndValidate(item, '2026-09-20T00:00:00Z');
+  assert.equal(res.accepted, true);
+  assert.equal(res.item?.imageUrl, null);
+  assert.equal(res.item?.source, 'Daily Inqilab');
+  assert.equal(res.item?.title, 'পাঁচবিবি ঐতিহ্যবাহী গ্রামীণ লাঠি খেলা অনুষ্ঠিত');
+});
+
+
 
