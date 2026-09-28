@@ -1,14 +1,25 @@
 /**
  * Panchbibi News Feed - Client-side fallback feed
- * Generated: 2026-09-27T20:39:24.264Z
- * Total items: 60
+ * Generated: 2026-09-28T12:29:24.173Z
+ * Total items: 61
  */
 (function() {
   window.PANCHBIBI_NEWS_FEED = {
-  "generatedAt": "2026-09-27T20:39:24.264Z",
-  "count": 60,
+  "generatedAt": "2026-09-28T12:29:24.173Z",
+  "count": 61,
   "sources": 7,
   "items": [
+    {
+      "id": "jobabdihi--news-125138",
+      "title": "‎পাঁচবিবিতে শিয়ালের সঙ্গে ধাক্কা লেগে জামায়াতের নেতা আহত",
+      "url": "https://www.jobabdihi.com/news/125138",
+      "source": "Jobabdihi",
+      "publishedAt": "2026-09-28T11:01:07.000Z",
+      "imageUrl": "https://www.jobabdihi.com/2026/09/28/JD_75.1790593267.jpg",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "category"
+    },
     {
       "id": "ajkerpatrika-ladesh-joypurhat-ajpmhyw8jhxzb",
       "title": "শিয়াল ঠেকাতে খেতে বৈদ্যুতিক ফাঁদ, প্রাণ গেল টাইলসমিস্ত্রির",
@@ -16,7 +27,7 @@
       "source": "Ajker Patrika",
       "publishedAt": "2026-09-27T08:03:16.727Z",
       "imageUrl": "https://images.ajkerpatrika.com/original_images/Dead-mtdh.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -27,7 +38,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-27T04:02:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "keyword",
       "sourceType": "search"
     },
@@ -38,7 +49,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-27T03:24:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -49,7 +60,7 @@
       "source": "Ajker Patrika",
       "publishedAt": "2026-09-26T11:02:08.789Z",
       "imageUrl": "https://images.ajkerpatrika.com/original_images/Joypurr.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -60,7 +71,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-26T00:00:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/Motorcycle accident_original_1757260592_1787644231.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -71,7 +82,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-25T00:00:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/00_1789917169.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -82,7 +93,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-25T00:00:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/20_1789575291.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -93,7 +104,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-25T00:00:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/17_1789485726.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -104,7 +115,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-25T00:00:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/23_1789489286.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -115,7 +126,7 @@
       "source": "Jobabdihi",
       "publishedAt": "2026-09-19T13:57:22.000Z",
       "imageUrl": "https://www.jobabdihi.com/2026/09/19/JD_87.1789826242.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -126,7 +137,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-19T11:50:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -159,7 +170,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-15T19:16:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/13_manbo bondhon_1789478188.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -181,7 +192,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-15T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -225,7 +236,7 @@
       "source": "Ajker Patrika",
       "publishedAt": "2026-09-13T15:40:42.581Z",
       "imageUrl": "https://images.ajkerpatrika.com/original_images/pcbb-srkr-gch.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -236,7 +247,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-13T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -258,7 +269,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-12T20:41:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/1...morde ho_1787994443.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -269,7 +280,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-12T09:23:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -280,7 +291,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-12T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -291,7 +302,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-10T14:18:36.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -302,7 +313,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-10T18:08:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/Screenshot_12_1789042104.png",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -324,7 +335,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-07T19:15:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/Screenshot_8_1788786923.png",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -335,7 +346,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-05T21:14:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/10_1788621249.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -346,7 +357,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-04T23:26:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/31_1788542797.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -357,7 +368,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-03T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -368,7 +379,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-01T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -390,7 +401,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-08-28T19:56:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/09_1787925381.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -401,7 +412,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-08-24T00:01:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/33_1787504764.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -423,7 +434,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-08-11T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -434,7 +445,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-08-05T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -456,7 +467,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-07-13T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -467,7 +478,7 @@
       "source": "Kalbela",
       "publishedAt": "2026-07-09T00:00:00+06:00",
       "imageUrl": "https://www.kalbela.com/cache-images/news_photos/2026/07/09/resize-600x315x1x0-image_307205_1783569182.webp",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -478,7 +489,7 @@
       "source": "Ajker Patrika",
       "publishedAt": "2026-07-07T14:48:35.535Z",
       "imageUrl": "https://images.ajkerpatrika.com/original_images/jyprht_Rdi43dz.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -489,7 +500,7 @@
       "source": "Kalbela",
       "publishedAt": "2026-07-03T00:00:00+06:00",
       "imageUrl": "https://www.kalbela.com/cache-images/news_photos/2026/07/03/resize-600x315x1x0-image_305443_1783083732.webp",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -500,7 +511,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-06-28T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -522,7 +533,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-06-22T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -544,7 +555,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-06-15T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -555,7 +566,7 @@
       "source": "Prothom Alo",
       "publishedAt": "2026-06-14T12:51:53.940Z",
       "imageUrl": "https://media.prothomalo.com/prothomalo-bangla/2026-06-14/hq0wq0n2/Joypurhat00.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "api"
     },
@@ -577,7 +588,7 @@
       "source": "Daily Inqilab",
       "publishedAt": "2026-06-07T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -588,7 +599,7 @@
       "source": "Prothom Alo",
       "publishedAt": "2026-06-06T12:49:56.641Z",
       "imageUrl": "https://media.prothomalo.com/prothomalo-bangla/2026-06-06/ecx4hm7d/JoypurhatDH0618.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "api"
     },
@@ -632,7 +643,7 @@
       "source": "Kalbela",
       "publishedAt": "2026-04-22T00:00:00+06:00",
       "imageUrl": "https://www.kalbela.com/cache-images/news_photos/2026/04/22/resize-600x315x1x0-image_284662_1776877150.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -654,7 +665,7 @@
       "source": "Ajker Patrika",
       "publishedAt": "2026-04-11T06:46:49.206Z",
       "imageUrl": "https://images.ajkerpatrika.com/original_images/Kupiye-hotta-kpy-hty-Hamla--hml.jpg",
-      "discoveredAt": "2026-09-27T20:39:24.264Z",
+      "discoveredAt": "2026-09-28T12:29:24.173Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
