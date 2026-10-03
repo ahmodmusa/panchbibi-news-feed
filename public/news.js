@@ -1,11 +1,11 @@
 /**
  * Panchbibi News Feed - Client-side fallback feed
- * Generated: 2026-10-03T15:29:26.675Z
+ * Generated: 2026-10-03T20:24:35.984Z
  * Total items: 77
  */
 (function() {
   window.PANCHBIBI_NEWS_FEED = {
-  "generatedAt": "2026-10-03T15:29:26.675Z",
+  "generatedAt": "2026-10-03T20:24:35.984Z",
   "count": 77,
   "sources": 8,
   "items": [
@@ -16,7 +16,7 @@
       "source": "Jobabdihi",
       "publishedAt": null,
       "imageUrl": "https://www.jobabdihi.com/2026/10/01/JD_87.1790858841.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -27,7 +27,7 @@
       "source": "Jobabdihi",
       "publishedAt": null,
       "imageUrl": "https://www.jobabdihi.com/2026/09/30/JD_75.1790774459.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -38,7 +38,7 @@
       "source": "Jobabdihi",
       "publishedAt": "2026-10-03T11:44:24.000Z",
       "imageUrl": "https://www.jobabdihi.com/2026/10/03/JD_58.1791027864.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -55,12 +55,12 @@
     },
     {
       "id": "dailyinqilab--bangladesh-news-946696",
-      "title": "পাঁচবিবিতে জাতীয় উৎপাদনশীলতা দিবস পালিত",
+      "title": "পাঁচবিবিতে জাতীয় উৎপাদনশীলতা দিবস পালিত - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/946696",
       "source": "Daily Inqilab",
       "publishedAt": "2026-10-02T06:30:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -71,18 +71,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-10-02T00:00:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/Motorcycle accident_original_1757260592_1787644231.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
-      "locationMatch": "panchbibi",
-      "sourceType": "search"
-    },
-    {
-      "id": "dailykaratoa--article-184445",
-      "title": "জয়পুরহাটের পাঁচবিবির মাদক কারবারি মালেকার জামিন নামঞ্জুর",
-      "url": "https://www.dailykaratoa.com/article/184445",
-      "source": "Daily Karatoa",
-      "publishedAt": "2026-10-02T00:00:00+06:00",
-      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/00_1789917169.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -93,7 +82,18 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-10-02T00:00:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/20_1789575291.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
+      "locationMatch": "panchbibi",
+      "sourceType": "search"
+    },
+    {
+      "id": "dailykaratoa--article-184445",
+      "title": "জয়পুরহাটের পাঁচবিবির মাদক কারবারি মালেকার জামিন নামঞ্জুর",
+      "url": "https://www.dailykaratoa.com/article/184445",
+      "source": "Daily Karatoa",
+      "publishedAt": "2026-10-02T00:00:00+06:00",
+      "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/00_1789917169.jpg",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -104,7 +104,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-10-02T00:00:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/17_1789485726.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -115,7 +115,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-10-02T00:00:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/23_1789489286.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -126,7 +126,7 @@
       "source": "Jobabdihi",
       "publishedAt": "2026-10-01T10:56:58.000Z",
       "imageUrl": "https://www.jobabdihi.com/2026/10/01/JD_58.1790852218.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -137,7 +137,7 @@
       "source": "Jobabdihi",
       "publishedAt": "2026-09-30T12:38:43.000Z",
       "imageUrl": "https://www.jobabdihi.com/2026/09/30/JD_58.1790771923.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -159,29 +159,29 @@
       "source": "Ajker Patrika",
       "publishedAt": "2026-09-29T11:36:59.679Z",
       "imageUrl": "https://images.ajkerpatrika.com/original_images/adalot_KUmxxbv.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
     {
       "id": "dailyinqilab--bangladesh-news-945635",
-      "title": "পাঁচবিবিতে স্কুলছাত্রী ধর্ষণ মামলায় একজনের যাবজ্জীবন",
+      "title": "পাঁচবিবিতে স্কুলছাত্রী ধর্ষণ মামলায় একজনের যাবজ্জীবন - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/945635",
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-29T11:35:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
     {
       "id": "dailyinqilab--bangladesh-news-945593",
-      "title": "পাঁচবিবিতে ডেকোরেটর শ্রমিক ইউনিয়নের অভিষেক অনুষ্ঠান",
+      "title": "পাঁচবিবিতে ডেকোরেটর শ্রমিক ইউনিয়নের অভিষেক অনুষ্ঠান - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/945593",
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-29T09:20:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -203,7 +203,7 @@
       "source": "Ajker Patrika",
       "publishedAt": "2026-09-27T08:03:16.727Z",
       "imageUrl": "https://images.ajkerpatrika.com/original_images/Dead-mtdh.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -220,12 +220,12 @@
     },
     {
       "id": "dailyinqilab-dex-php-bangladesh-news-944779",
-      "title": "পাঁচবিবিতে শসা ক্ষেতের বৈদ্যুতিক তারে জড়িয়ে যুবকের মৃত্যু",
+      "title": "পাঁচবিবিতে শসা ক্ষেতের বৈদ্যুতিক তারে জড়িয়ে যুবকের মৃত্যু - dailyinqilab.com",
       "url": "https://dailyinqilab.com/index.php/bangladesh/news/944779",
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-27T03:24:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -236,7 +236,7 @@
       "source": "Ajker Patrika",
       "publishedAt": "2026-09-26T11:02:08.789Z",
       "imageUrl": "https://images.ajkerpatrika.com/original_images/Joypurr.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -253,12 +253,12 @@
     },
     {
       "id": "dailyinqilab-dex-php-bangladesh-news-941903",
-      "title": "পাঁচবিবি ঐতিহ্যবাহী গ্রামীণ লাঠি খেলা অনুষ্ঠিত",
+      "title": "পাঁচবিবি ঐতিহ্যবাহী গ্রামীণ লাঠি খেলা অনুষ্ঠিত - dailyinqilab.com",
       "url": "https://dailyinqilab.com/index.php/bangladesh/news/941903",
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-19T11:50:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -291,7 +291,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-15T19:16:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/13_manbo bondhon_1789478188.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -357,7 +357,7 @@
       "source": "Ajker Patrika",
       "publishedAt": "2026-09-13T15:40:42.581Z",
       "imageUrl": "https://images.ajkerpatrika.com/original_images/pcbb-srkr-gch.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -390,7 +390,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-12T20:41:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/1...morde ho_1787994443.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -418,12 +418,12 @@
     },
     {
       "id": "dailyinqilab--bangladesh-news-938594",
-      "title": "পাঁচবিবিতে মসজিদের ফ্যান চুরি করতে গিয়ে যুবক আটক",
+      "title": "পাঁচবিবিতে মসজিদের ফ্যান চুরি করতে গিয়ে যুবক আটক - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/938594",
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-11T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -434,18 +434,18 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-10T18:08:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/Screenshot_12_1789042104.png",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
     {
       "id": "dailyinqilab--bangladesh-news-938499",
-      "title": "পাঁচবিবিতে কিশোরীর ঝুলন্ত মরদেহ উদ্ধার",
+      "title": "পাঁচবিবিতে কিশোরীর ঝুলন্ত মরদেহ উদ্ধার - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/938499",
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-10T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -456,7 +456,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-07T19:15:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/Screenshot_8_1788786923.png",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -467,7 +467,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-05T21:14:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/10_1788621249.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -478,18 +478,18 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-09-04T23:26:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-09/31_1788542797.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
     {
       "id": "dailyinqilab--bangladesh-news-935574",
-      "title": "পাঁচবিবিতে অটোভ্যান ছিনতাই, গ্রেপ্তার ৪",
+      "title": "পাঁচবিবিতে অটোভ্যান ছিনতাই, গ্রেপ্তার ৪ - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/935574",
       "source": "Daily Inqilab",
       "publishedAt": "2026-09-03T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -522,7 +522,7 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-08-28T19:56:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/09_1787925381.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -533,51 +533,51 @@
       "source": "Daily Karatoa",
       "publishedAt": "2026-08-24T00:01:00+06:00",
       "imageUrl": "https://www.dailykaratoa.com/watermarked?source=images/2026-08/33_1787504764.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
     {
       "id": "dailyinqilab--bangladesh-news-930081",
-      "title": "পাঁচবিবিতে গলায় ওড়না পেঁচিয়ে তরুণীর আত্মহত্যা",
+      "title": "পাঁচবিবিতে গলায় ওড়না পেঁচিয়ে তরুণীর আত্মহত্যা - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/930081",
       "source": "Daily Inqilab",
       "publishedAt": "2026-08-19T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
     {
       "id": "dailyinqilab--bangladesh-news-928861",
-      "title": "পাঁচবিবিতে অজ্ঞাত যুবকের মরদেহ উদ্ধার",
+      "title": "পাঁচবিবিতে অজ্ঞাত যুবকের মরদেহ উদ্ধার - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/928861",
       "source": "Daily Inqilab",
       "publishedAt": "2026-08-16T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
     {
       "id": "dailyinqilab--bangladesh-news-927815",
-      "title": "পাঁচবিবিতে ভাঙা সুইচগেটে হুমকিতে বসতবাড়ি, আতঙ্কে ৫০ পরিবার",
+      "title": "পাঁচবিবিতে ভাঙা সুইচগেটে হুমকিতে বসতবাড়ি, আতঙ্কে ৫০ পরিবার - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/927815",
       "source": "Daily Inqilab",
       "publishedAt": "2026-08-13T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
     {
       "id": "dailyinqilab--bangladesh-news-926945",
-      "title": "পাঁচবিবির ছাতিনালী উচ্চ বিদ্যালয়ে অভিভাবক সমাবেশ অনুষ্ঠিত",
+      "title": "পাঁচবিবির ছাতিনালী উচ্চ বিদ্যালয়ে অভিভাবক সমাবেশ অনুষ্ঠিত - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/926945",
       "source": "Daily Inqilab",
       "publishedAt": "2026-08-11T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -605,12 +605,12 @@
     },
     {
       "id": "dailyinqilab--bangladesh-news-915927",
-      "title": "পাঁচবিবিতে ডিবি পুলিশের অভিযানে মাদক ব্যবসায়ী গ্রেফতার",
+      "title": "পাঁচবিবিতে ডিবি পুলিশের অভিযানে মাদক ব্যবসায়ী গ্রেফতার - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/915927",
       "source": "Daily Inqilab",
       "publishedAt": "2026-07-13T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-09-28T12:29:24.173Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -621,7 +621,7 @@
       "source": "Kalbela",
       "publishedAt": "2026-07-09T00:00:00+06:00",
       "imageUrl": "https://www.kalbela.com/cache-images/news_photos/2026/07/09/resize-600x315x1x0-image_307205_1783569182.webp",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -632,18 +632,18 @@
       "source": "Ajker Patrika",
       "publishedAt": "2026-07-07T14:48:35.535Z",
       "imageUrl": "https://images.ajkerpatrika.com/original_images/jyprht_Rdi43dz.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
     {
       "id": "dailyinqilab--bangladesh-news-912068",
-      "title": "পাঁচবিবি সীমান্তে স্বর্ণ চোরাকারবারি আটক",
+      "title": "পাঁচবিবি সীমান্তে স্বর্ণ চোরাকারবারি আটক - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/912068",
       "source": "Daily Inqilab",
       "publishedAt": "2026-07-03T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -654,29 +654,29 @@
       "source": "Kalbela",
       "publishedAt": "2026-07-03T00:00:00+06:00",
       "imageUrl": "https://www.kalbela.com/cache-images/news_photos/2026/07/03/resize-600x315x1x0-image_305443_1783083732.webp",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
     {
       "id": "dailyinqilab--bangladesh-news-909986",
-      "title": "পাঁচবিবিতে গ্রাম পুলিশের বাড়ীতে গাঁজার চাষ, গ্রেফতার -২",
+      "title": "পাঁচবিবিতে গ্রাম পুলিশের বাড়ীতে গাঁজার চাষ, গ্রেফতার -২ - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/909986",
       "source": "Daily Inqilab",
       "publishedAt": "2026-06-28T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
     {
       "id": "dailyinqilab--bangladesh-news-908253",
-      "title": "পাঁচবিবিতে ট্রাকের চাপায় পিষ্ট হয়ে যুবকের মৃত্যু",
+      "title": "পাঁচবিবিতে ট্রাকের চাপায় পিষ্ট হয়ে যুবকের মৃত্যু - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/908253",
       "source": "Daily Inqilab",
       "publishedAt": "2026-06-23T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -693,12 +693,12 @@
     },
     {
       "id": "dailyinqilab-dex-php-bangladesh-news-907153",
-      "title": "পাঁচবিবিতে সামাজিক বনায়ন কর্মসূচীর উদ্বোধন",
+      "title": "পাঁচবিবিতে সামাজিক বনায়ন কর্মসূচীর উদ্বোধন - dailyinqilab.com",
       "url": "https://dailyinqilab.com/index.php/bangladesh/news/907153",
       "source": "Daily Inqilab",
       "publishedAt": "2026-06-20T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -715,12 +715,12 @@
     },
     {
       "id": "dailyinqilab--bangladesh-news-905358",
-      "title": "পাঁচবিবিতে বিশ্ব তামাকমুক্ত দিবস উদযাপিত",
+      "title": "পাঁচবিবিতে বিশ্ব তামাকমুক্ত দিবস উদযাপিত - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/905358",
       "source": "Daily Inqilab",
       "publishedAt": "2026-06-15T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -731,18 +731,18 @@
       "source": "Prothom Alo",
       "publishedAt": "2026-06-14T12:51:53.940Z",
       "imageUrl": "https://media.prothomalo.com/prothomalo-bangla/2026-06-14/hq0wq0n2/Joypurhat00.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "api"
     },
     {
       "id": "dailyinqilab--bangladesh-news-904337",
-      "title": "পাঁচবিবিতে পানি প্রবাহের পথ বন্ধ: রাস্তায় জলাবদ্ধতা, চলাচলে জনদুর্ভোগ",
+      "title": "পাঁচবিবিতে পানি প্রবাহের পথ বন্ধ: রাস্তায় জলাবদ্ধতা, চলাচলে জনদুর্ভোগ - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/904337",
       "source": "Daily Inqilab",
       "publishedAt": "2026-06-12T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -759,12 +759,12 @@
     },
     {
       "id": "dailyinqilab--bangladesh-news-902402",
-      "title": "পাঁচবিবিতে বিদ্যুৎস্পৃষ্ট হয়ে একজনের মৃত্যু",
+      "title": "পাঁচবিবিতে বিদ্যুৎস্পৃষ্ট হয়ে একজনের মৃত্যু - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/902402",
       "source": "Daily Inqilab",
       "publishedAt": "2026-06-07T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -775,29 +775,29 @@
       "source": "Prothom Alo",
       "publishedAt": "2026-06-06T12:49:56.641Z",
       "imageUrl": "https://media.prothomalo.com/prothomalo-bangla/2026-06-06/ecx4hm7d/JoypurhatDH0618.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "api"
     },
     {
       "id": "dailyinqilab--bangladesh-news-899728",
-      "title": "পাঁচবিবিতে ২৭টি গরু জবাই করে অসহায়-দুস্থ মানুষের মাঝে বিতরণ",
+      "title": "পাঁচবিবিতে ২৭টি গরু জবাই করে অসহায়-দুস্থ মানুষের মাঝে বিতরণ - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/899728",
       "source": "Daily Inqilab",
       "publishedAt": "2026-05-29T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
     {
       "id": "dailyinqilab--bangladesh-news-891174",
-      "title": "পাঁচবিবিতে আবারও সিঁধ কেটে কৃষকের গরু চুরি",
+      "title": "পাঁচবিবিতে আবারও সিঁধ কেটে কৃষকের গরু চুরি - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/891174",
       "source": "Daily Inqilab",
       "publishedAt": "2026-05-05T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -819,7 +819,7 @@
       "source": "Kalbela",
       "publishedAt": "2026-04-22T00:00:00+06:00",
       "imageUrl": "https://www.kalbela.com/cache-images/news_photos/2026/04/22/resize-600x315x1x0-image_284662_1776877150.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     },
@@ -836,12 +836,12 @@
     },
     {
       "id": "dailyinqilab--bangladesh-news-882622",
-      "title": "পাঁচবিবিতে গাছের সাথে ঝুলছিল যুবকের লাশ",
+      "title": "পাঁচবিবিতে গাছের সাথে ঝুলছিল যুবকের লাশ - dailyinqilab.com",
       "url": "https://dailyinqilab.com/bangladesh/news/882622",
       "source": "Daily Inqilab",
       "publishedAt": "2026-04-11T07:00:00.000Z",
       "imageUrl": null,
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "search"
     },
@@ -852,7 +852,7 @@
       "source": "Ajker Patrika",
       "publishedAt": "2026-04-11T06:46:49.206Z",
       "imageUrl": "https://images.ajkerpatrika.com/original_images/Kupiye-hotta-kpy-hty-Hamla--hml.jpg",
-      "discoveredAt": "2026-10-03T15:29:26.675Z",
+      "discoveredAt": "2026-10-03T20:24:35.984Z",
       "locationMatch": "panchbibi",
       "sourceType": "category"
     }
